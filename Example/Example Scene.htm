@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://aframe.io/aframe-inspector/example/ -->
+<html class="a-html gr__aframe_io wf-roboto-n4-active wf-robotomono-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">
+
+
+
+
+
+
+
+.uploadcare-dialog-disabled-tab:hover:before,.uploadcare-dialog-tab:before,.uploadcare-dialog-tab:hover:before{background-image:url("https://ucarecdn.com/widget/2.10.0/uploadcare/images/tab-icons.png");background-size:50px}.uploadcare-dialog-tab_current:before,.uploadcare-dialog-tab_current:hover:before{background-image:url("https://ucarecdn.com/widget/2.10.0/uploadcare/images/tab-icons-active.png");background-size:50px}.uploadcare-dialog-file-sources:before{background-image:url("https://ucarecdn.com/widget/2.10.0/uploadcare/images/arrow.png")}.uploadcare-remove{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAQAAAAngNWGAAABM0lEQVQoz5VTvW7CMBC2kHivQsjrZGRjaB6lXWCJbWScIT8PYN0GQ7s6FUUKL8CA2suR2C4FlfqkyL77cuf7/B1jbp3GdmIW1VIVKq9ezMI+ncbs92omNeeQgYQ1msQdh5o30x+g82ibCAysr4yDgG1yHjngLhkyXVuXeZcMRSNJMI4mAwinGl2siaiFWncOAW/QgO4vwCGHD/QI2tca27LxEDrAF7QE5fg94ungfrMxM89ZXyqnYAsbtG53RM/lKhmYlJUr6XrUPbQlmHY8SChXTBUhHRsCXfKGdKmCKe2PApQDKmokAJavD5b2zei+hTvNDPQI+HR5PD3C0+MJf4c95vCE79ETEI5POPvzCWf/EwXJbH5XZvNAZqSh6U3hRjc0jqMQmxRHoVRltTSpjcNR+AZwwvykEau0BgAAAABJRU5ErkJggg==)}.uploadcare-file-item__error:before{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABIklEQVR42q3Vv2rCUBTHcaEQH825TdLl9hl0FsFdV7s5uXSpb+DoEziV6JCgATdR02D9E09/R64KF3NPbQx84BJOvgRyuSktK5VbHHiFDwhhCwl86Xu+nimZbsWeYQIkmMCLLfgELaA7tfSzRlCISVEz6AEV5J2DDszyBtNGg7L5/CSt123BGBwOKqA8WRzT+cqmU+kt3zj4aQ0myTW4WEjBPgcj29B+NLoE98OhFIw4+GMb2vR6l+Cm25WCWw6ubUPftRrR8XiSVKt/CgZADxKJH2XlurQbDBivxY8ibpu02SR98VrcNuLGXitFh/GYDkHAa2ljlznIfKCCfPNwaBeItfOOr84/Yu/m8WVy7zhgPfHE1hxQ0IcQdlqo76m8X8Avwkyxg4iIuCEAAAAASUVORK5CYII=)}.uploadcare-file-icon{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAQAAAAngNWGAAABD0lEQVQoFQXBPa5OARQF0LXPvfKS9wo/hegMQUzEJESiUIpOoxOlRKJDIgqVUZiNqPGdba0AAPLj48Mn/8ApgEcPOAGArx/uPVvrEFVRA04A+PTu+vk1BlSwLuAE4Pubvy+vHGAFxABOgC+v/ryO24oYUVUDGODzi+PtjfuuXBBUxG8XASd8e3rz/o5rY60YwVjXKAj8/HXrblDFIAKCehxOOHcxCggWUTHghJYqIqIigoqCEyCKEcXFgAjghCAWi1EDIlgwABWxoIhYaxUMsIo4BEHBRR1ggMMogoqq4jCAgVo1VhGMgFjACQUjCKIqIigYqKiLILiogFULBkbUWhSDqKpYMFAFwaJGUVUH+A8ToG9OM8KqQQAAAABJRU5ErkJggg==)}.uploadcare-zoomable-icon:after{background-image:url("https://ucarecdn.com/widget/2.10.0/uploadcare/images/zoom@2x.png")}.uploadcare-dialog-error-tab-illustration{background-image:url("https://ucarecdn.com/widget/2.10.0/uploadcare/images/error-default.png")}.uploadcare-dialog-camera-holder .uploadcare-dialog-error-tab-illustration,.uploadcare-dialog-error-tab-image .uploadcare-dialog-error-tab-illustration{background-image:url("https://ucarecdn.com/widget/2.10.0/uploadcare/images/error-image.png")}.uploadcare-dialog{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQIHWMw/AQAAVcBJCiBozgAAAAASUVORK5CYII=);background:rgba(48,48,48,.7)}@media (-webkit-min-device-pixel-ratio:1.5),(min-resolution:144dpi){.uploadcare-dialog-disabled-tab:hover:before,.uploadcare-dialog-tab:before,.uploadcare-dialog-tab:hover:before{background-image:url("https://ucarecdn.com/widget/2.10.0/uploadcare/images/tab-icons@2x.png")}.uploadcare-dialog-tab_current:before,.uploadcare-dialog-tab_current:hover:before{background-image:url("https://ucarecdn.com/widget/2.10.0/uploadcare/images/tab-icons-active@2x.png")}}html.uploadcare-dialog-opened{overflow:hidden}.uploadcare-dialog{font-family:"Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;position:fixed;top:0;left:0;width:100%;height:100%;z-index:10000;overflow:auto;white-space:nowrap;text-align:center}.uploadcare-dialog:before{display:inline-block;vertical-align:middle;content:'';height:100%;position:static;width:0}.uploadcare-dialog *{margin:0;padding:0}.uploadcare-dialog .uploadcare-dialog-panel{border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,.35)}.uploadcare-dialog{-webkit-transition:opacity .33s cubic-bezier(.05,.7,.25,1);transition:opacity .33s cubic-bezier(.05,.7,.25,1);opacity:0}.uploadcare-dialog .uploadcare-dialog-inner-wrap{-webkit-transition:-webkit-transform .33s cubic-bezier(.05,.7,.25,1);transition:transform .33s cubic-bezier(.05,.7,.25,1);transition:transform .33s cubic-bezier(.05,.7,.25,1),-webkit-transform .33s cubic-bezier(.05,.7,.25,1);-webkit-transform:scale(.8);-ms-transform:scale(.8);transform:scale(.8);-webkit-transform-origin:50% 100%;-ms-transform-origin:50% 100%;transform-origin:50% 100%}.uploadcare-dialog.uploadcare-active{opacity:1}.uploadcare-dialog.uploadcare-active .uploadcare-dialog-inner-wrap{-webkit-transform:none;-ms-transform:none;transform:none}.uploadcare-dialog-inner-wrap{display:inline-block;vertical-align:middle;white-space:normal;text-align:left;box-sizing:border-box;position:relative;width:100%;min-width:760px;max-width:944px;padding:0 33px 0 11px}.uploadcare-dialog-close{width:33px;height:33px;line-height:33px;font-size:29.7px;font-weight:700;color:#fff;cursor:pointer;position:absolute;text-align:center;right:0}.uploadcare-dialog-panel{overflow:hidden;position:relative;background:#efefef;font-weight:400;padding-left:75px;box-sizing:border-box}.uploadcare-dialog-panel :focus{outline:2px dotted #0094c0}.uploadcare-dialog-panel .uploadcare-mouse-focused:focus,.uploadcare-dialog-panel :active{outline:none}.uploadcare-dialog-panel.uploadcare-panel-hide-tabs{padding-left:0}.uploadcare-dialog-tabs{box-sizing:border-box;width:75px;height:616px;margin-left:-75px;float:left;background:#dee0e1;border-right:1px solid #c5cace}.uploadcare-panel-hide-tabs .uploadcare-dialog-tabs{display:none}.uploadcare-dialog-tab{box-sizing:border-box;height:56px;position:relative;border-bottom:1px solid #c5cace;cursor:pointer}.uploadcare-dialog-tab .uploadcare-dialog-icon,.uploadcare-dialog-tab:before{box-sizing:border-box;position:absolute;top:50%;left:50%;display:inline-block;width:50px;height:50px;margin:-25px;opacity:.66}.uploadcare-dialog-tab:before{content:''}.uploadcare-dialog-tab:hover{background-color:#e5e7e8}.uploadcare-dialog-tab:hover .uploadcare-dialog-icon{opacity:1}.uploadcare-dialog-tab:hover:before{opacity:1}.uploadcare-dialog-tab_current{margin-right:-1px;border-right:1px solid #efefef;background-color:#efefef}.uploadcare-dialog-tab_current:hover{background-color:#efefef}.uploadcare-dialog-tab_current .uploadcare-dialog-icon{opacity:1}.uploadcare-dialog-tab_current:before{opacity:1}.uploadcare-dialog-tab_hidden{display:none!important}.uploadcare-dialog-disabled-tab{cursor:default}.uploadcare-dialog-disabled-tab:hover{background-color:#dee0e1}.uploadcare-dialog-tab-preview .uploadcare-widget-circle{padding:10px}.uploadcare-dialog-tab-preview .uploadcare-widget-circle--canvas{color:#828689;border-color:#bfbfbf}.uploadcare-dialog-tab-preview.uploadcare-dialog-tab_current .uploadcare-widget-circle--canvas{color:#d0bf26;border-color:#e1e5e7}.uploadcare-dialog-tab-preview:before{display:none}.uploadcare-dialog-tab-file:before{background-position:0 -50px}.uploadcare-dialog-tab-url:before{background-position:0 -100px}.uploadcare-dialog-tab-facebook:before{background-position:0 -150px}.uploadcare-dialog-tab-dropbox:before{background-position:0 -200px}.uploadcare-dialog-tab-gdrive:before{background-position:0 -250px}.uploadcare-dialog-tab-instagram:before{background-position:0 -300px}.uploadcare-dialog-tab-vk:before{background-position:0 -350px}.uploadcare-dialog-tab-evernote:before{background-position:0 -400px}.uploadcare-dialog-tab-box:before{background-position:0 -450px}.uploadcare-dialog-tab-skydrive:before{background-position:0 -500px}.uploadcare-dialog-tab-flickr:before{background-position:0 -550px}.uploadcare-dialog-tab-camera:before{background-position:0 -600px}.uploadcare-dialog-tab-huddle:before{background-position:0 -650px}.uploadcare-dialog-tab-gphotos:before{background-position:0 -700px}.uploadcare-dialog-tabs-panel{position:relative;display:none;box-sizing:border-box;height:616px;line-height:22px;font-size:16px;color:#000}.uploadcare-dialog-multiple .uploadcare-dialog-tabs-panel{height:550px}.uploadcare-dialog-tabs-panel .uploadcare-dialog-input{box-sizing:border-box;width:100%;height:44px;margin-bottom:22px;padding:11px 12.5px;font-family:inherit;font-size:16px;border:1px solid #c5cace;background:#fff;color:#000}.uploadcare-dialog-tabs-panel_current{display:block}.uploadcare-pre{white-space:pre;font-family:monospace;margin:22px auto;padding:22px 25px;background-color:#fff;border:1px solid #c5cace;border-radius:3px;text-align:left;font-size:15px;line-height:22px}.uploadcare-dialog-footer{font-size:13px;line-height:1.4em;text-align:center;color:#fff;margin:15px}.uploadcare-dialog .uploadcare-dialog-footer svg{vertical-align:middle;padding:0 2px}.uploadcare-dialog .uploadcare-dialog-footer a{color:#fff;text-decoration:none}.uploadcare-dialog .uploadcare-dialog-footer a:hover{text-decoration:underline}.uploadcare-dialog-title{font-size:22px;line-height:1;margin-bottom:22px}.uploadcare-dialog-title.uploadcare-error{color:red}.uploadcare-dialog-title2{font-size:20px;line-height:1;padding-bottom:11px}.uploadcare-dialog-big-title{font-size:40px;font-weight:700;line-height:1em;margin-bottom:50px}.uploadcare-dialog-label{font-size:15px;line-height:25px;margin-bottom:12.5px;word-wrap:break-word}.uploadcare-dialog-large-text{font-size:20px;font-weight:400;line-height:1.5em}.uploadcare-dialog-large-text .uploadcare-pre{display:inline-block;font-size:18px}.uploadcare-dialog-section{margin-bottom:22px}.uploadcare-dialog-normal-text{font-size:13px;color:#545454}.uploadcare-dialog-button,.uploadcare-dialog-button-success{display:inline-block;font-size:13px;line-height:30px;padding:0 12.5px;margin-right:.5em;border:solid 1px;border-radius:3px;cursor:pointer}.uploadcare-dialog-button{color:#444}.uploadcare-dialog-button,.uploadcare-dialog-button.uploadcare-disabled-el:active,.uploadcare-dialog-button.uploadcare-disabled-el:hover,.uploadcare-dialog-button[disabled]:active,.uploadcare-dialog-button[disabled]:hover{background:#f3f3f3;background:-webkit-linear-gradient(#f5f5f5,#f1f1f1);background:linear-gradient(#f5f5f5,#f1f1f1);box-shadow:none;border-color:#dcdcdc}.uploadcare-dialog-button:hover{background:#f9f9f9;background:-webkit-linear-gradient(#fbfbfb,#f6f6f6);background:linear-gradient(#fbfbfb,#f6f6f6);box-shadow:inset 0 -1px 3px rgba(0,0,0,.05)}.uploadcare-dialog-button:active{background:#f3f3f3;background:-webkit-linear-gradient(#f5f5f5,#f1f1f1);background:linear-gradient(#f5f5f5,#f1f1f1);box-shadow:inset 0 2px 2px rgba(0,0,0,.05)}.uploadcare-dialog-button.uploadcare-disabled-el,.uploadcare-dialog-button[disabled]{cursor:default;opacity:.6}.uploadcare-dialog-button:active,.uploadcare-dialog-button:hover{border-color:#cbcbcb}.uploadcare-dialog-button-success{color:#fff}.uploadcare-dialog-button-success,.uploadcare-dialog-button-success.uploadcare-disabled-el:active,.uploadcare-dialog-button-success.uploadcare-disabled-el:hover,.uploadcare-dialog-button-success[disabled]:active,.uploadcare-dialog-button-success[disabled]:hover{background:#3886eb;background:-webkit-linear-gradient(#3b8df7,#347fdf);background:linear-gradient(#3b8df7,#347fdf);box-shadow:none;border-color:#266fcb}.uploadcare-dialog-button-success:hover{background:#337ad6;background:-webkit-linear-gradient(#3986ea,#2c6dc2);background:linear-gradient(#3986ea,#2c6dc2)}.uploadcare-dialog-button-success:active{background:#3178d3;background:-webkit-linear-gradient(#3680e1,#2c6fc5);background:linear-gradient(#3680e1,#2c6fc5)}.uploadcare-dialog-button-success.uploadcare-disabled-el,.uploadcare-dialog-button-success[disabled]{cursor:default;opacity:.6}.uploadcare-dialog-button-success:active,.uploadcare-dialog-button-success:hover{border-color:#266eca #1f62b7 #1753a1}.uploadcare-dialog-button-success:hover{box-shadow:inset 0 -1px 3px rgba(22,82,160,.5)}.uploadcare-dialog-button-success:active{box-shadow:inset 0 1px 3px rgba(22,82,160,.4)}.uploadcare-dialog-big-button{border-radius:100px;font-size:20px;font-weight:400;letter-spacing:1px;color:#fff;line-height:33px;border:solid 1px #276fcb;text-shadow:0 -1px #2a7ce5;display:inline-block;padding:16.5px 2em;cursor:pointer;box-shadow:inset 0 -2px #1f66c1;background:#458eee;background:-webkit-linear-gradient(#4892f6,#4289e6);background:linear-gradient(#4892f6,#4289e6)}.uploadcare-dialog-big-button:hover{box-shadow:inset 0 -2px #1652a0;background:#337ad7;background:-webkit-linear-gradient(#3986eb,#2c6dc2);background:linear-gradient(#3986eb,#2c6dc2)}.uploadcare-dialog-big-button:active{box-shadow:inset 0 2px #2561b9;background:#2c6ec3;background:-webkit-linear-gradient(#2c6ec3,#2c6ec3);background:linear-gradient(#2c6ec3,#2c6ec3)}.uploadcare-dialog-preview-image-wrap,.uploadcare-dialog-preview-video-wrap{white-space:nowrap;text-align:center;width:100%;height:462px}.uploadcare-dialog-preview-image-wrap:before,.uploadcare-dialog-preview-video-wrap:before{display:inline-block;vertical-align:middle;content:'';height:100%;position:static;width:0}.uploadcare-dialog-preview--with-sizes .uploadcare-dialog-preview-image-wrap,.uploadcare-dialog-preview--with-sizes .uploadcare-dialog-preview-video-wrap{position:relative;top:-40px;height:422px}.uploadcare-dialog-preview-image,.uploadcare-dialog-preview-video{display:inline-block;vertical-align:middle;white-space:normal;max-width:100%;max-height:100%}.uploadcare-dialog-tabs-panel-preview.uploadcare-dialog-tabs-panel_current~.uploadcare-panel-footer{display:none}.uploadcare-panel-footer{box-sizing:border-box;background:#fff3be;border-top:1px solid #efe2a9;height:66px;padding:17px 25px 0}.uploadcare-panel-footer .uploadcare-dialog-button-success{float:right}.uploadcare-panel-footer .uploadcare-dialog-button{float:left}.uploadcare-panel-footer .uploadcare-dialog-button,.uploadcare-panel-footer .uploadcare-dialog-button-success{min-width:100px;text-align:center;margin-right:0}.uploadcare-panel-footer .uploadcare-error{color:red}.uploadcare-panel-footer-text{text-align:center;color:#85732c;font-size:15px;line-height:32px}.uploadcare-dialog-message-center{text-align:center;padding-top:110px}.uploadcare-dialog-preview-center{text-align:center;padding-top:176px}.uploadcare-dialog-preview-circle{width:66px;height:66px;display:inline-block;margin-bottom:22px}.uploadcare-dialog-error-tab-wrap{height:100%;text-align:center;white-space:nowrap}.uploadcare-dialog-error-tab-wrap:before{display:inline-block;vertical-align:middle;content:'';height:100%;position:static;width:0}.uploadcare-dialog-error-tab-wrap .uploadcare-dialog-title{margin-bottom:12px}.uploadcare-dialog-error-tab-wrap .uploadcare-dialog-normal-text{margin-bottom:38px}.uploadcare-dialog-error-tab-wrap .uploadcare-dialog-button-success{margin:0}.uploadcare-dialog-error-tab-wrap2{display:inline-block;vertical-align:middle;white-space:normal;margin-top:-22px}.uploadcare-dialog-error-tab-illustration{display:inline-block;width:170px;height:120px;background-position:center;background-repeat:no-repeat;margin-bottom:38px}.uploadcare-draganddrop .uploadcare-if-no-draganddrop,.uploadcare-if-draganddrop{display:none}.uploadcare-draganddrop .uploadcare-if-draganddrop{display:block}.uploadcare-draganddrop .uploadcare-dialog-file-drop-area{border:dashed 3px #c5cacd;background:rgba(255,255,255,.64)}.uploadcare-draganddrop .uploadcare-dialog-file-title{color:#dee0e1;text-shadow:0 1px #fff;margin-top:0}.uploadcare-dialog-file-drop-area{width:100%;height:100%;box-sizing:border-box;border:none;text-align:center;border-radius:3px;padding-top:70px}.uploadcare-dialog-file-drop-area .uploadcare-dialog-big-button{margin-top:11px;margin-bottom:55px}.uploadcare-dialog-file-title{font-size:40px;line-height:1;color:#000;font-weight:700;margin:66px 0}.uploadcare-dialog-file-or{font-size:13px;color:#8f9498;margin-bottom:33px}.uploadcare-dialog-file-sources{position:relative;display:inline-block;padding:0 80px 0 100px;line-height:2em}.uploadcare-dialog-file-sources:before{background-repeat:no-repeat;content:'';display:block;position:absolute;width:67px;height:44px;padding:0;top:-30px;left:10px}.uploadcare-dialog-file-source{display:inline;font-size:15px;margin-right:.2em;cursor:pointer;font-weight:300;white-space:nowrap}.uploadcare-dialog-file-source:after{content:'\00B7';color:#b7babc;margin-left:.5em}.uploadcare-dialog-file-source:last-child:after{display:none}.uploadcare-dragging .uploadcare-dialog-file-drop-area .uploadcare-dialog-big-button,.uploadcare-dragging .uploadcare-dialog-file-or,.uploadcare-dragging .uploadcare-dialog-file-sources{display:none}.uploadcare-dragging .uploadcare-dialog-file-drop-area{background-color:#f0f0f0;border-color:#b3b5b6;padding-top:264px}.uploadcare-dragging .uploadcare-dialog-file-title{color:#707478}.uploadcare-dragging.uploadcare-dialog-file-drop-area{background-color:#f2f7fe;border-color:#438ae7}.uploadcare-dragging.uploadcare-dialog-file-drop-area .uploadcare-dialog-file-title{color:#438ae7}.uploadcare-dialog-camera-holder{white-space:nowrap;text-align:center;height:528px}.uploadcare-dialog-camera-holder:before{display:inline-block;vertical-align:middle;content:'';height:100%;position:static;width:0}.uploadcare-dialog-camera-holder .uploadcare-dialog-normal-text{margin-bottom:38px}.uploadcare-dialog-multiple .uploadcare-dialog-camera-holder{height:462px}.uploadcare-dialog-camera-video{vertical-align:middle;white-space:normal;display:none;max-width:100%;max-height:528px;-webkit-transition:-webkit-transform .8s cubic-bezier(.23,1,.32,1);transition:transform .8s cubic-bezier(.23,1,.32,1);transition:transform .8s cubic-bezier(.23,1,.32,1),-webkit-transform .8s cubic-bezier(.23,1,.32,1)}.uploadcare-dialog-multiple .uploadcare-dialog-camera-video{max-height:462px}.uploadcare-dialog-camera--mirrored{-webkit-transform:scale(-1,1);-ms-transform:scale(-1,1);transform:scale(-1,1)}.uploadcare-dialog-camera-message{vertical-align:middle;white-space:normal;display:none;max-width:450px}.uploadcare-dialog-camera-controls{margin-top:17px;text-align:center}.uploadcare-dialog-camera-mirror{position:absolute;margin-right:0;right:25px}.uploadcare-dialog-camera-cancel-record,.uploadcare-dialog-camera-capture,.uploadcare-dialog-camera-mirror,.uploadcare-dialog-camera-not-found,.uploadcare-dialog-camera-retry,.uploadcare-dialog-camera-start-record,.uploadcare-dialog-camera-stop-record{display:none}.uploadcare-dialog-camera-requested .uploadcare-dialog-camera-message{display:inline-block}.uploadcare-dialog-camera-not-founded .uploadcare-dialog-camera-please-allow{display:none}.uploadcare-dialog-camera-not-founded .uploadcare-dialog-camera-not-found{display:block}.uploadcare-dialog-camera-denied .uploadcare-dialog-camera-message,.uploadcare-dialog-camera-denied .uploadcare-dialog-camera-retry,.uploadcare-dialog-camera-ready .uploadcare-dialog-camera-capture,.uploadcare-dialog-camera-ready .uploadcare-dialog-camera-mirror,.uploadcare-dialog-camera-ready .uploadcare-dialog-camera-start-record,.uploadcare-dialog-camera-ready .uploadcare-dialog-camera-video,.uploadcare-dialog-camera-recording .uploadcare-dialog-camera-cancel-record,.uploadcare-dialog-camera-recording .uploadcare-dialog-camera-stop-record,.uploadcare-dialog-camera-recording .uploadcare-dialog-camera-video{display:inline-block}.uploadcare-file-list{height:550px;overflow:auto;position:relative;margin:0 -25px -22px 0}.uploadcare-dialog-multiple .uploadcare-file-list{height:484px}.uploadcare-file-list_table .uploadcare-file-item{border-top:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;margin-bottom:-1px;display:table;table-layout:fixed;width:100%;padding:10px 0;min-height:20px}.uploadcare-file-list_table .uploadcare-file-item>*{box-sizing:content-box;display:table-cell;vertical-align:middle;padding-right:20px}.uploadcare-file-list_table .uploadcare-file-item:last-child{margin-bottom:0}.uploadcare-file-list_table .uploadcare-file-item:hover{background:#ececec}.uploadcare-file-list_table .uploadcare-file-item__preview{width:55px;padding-right:10px}.uploadcare-file-list_table .uploadcare-file-item__preview>img{height:55px}.uploadcare-file-list_table .uploadcare-file-item__size{width:3.5em}.uploadcare-file-list_table .uploadcare-file-item__progressbar{width:80px}.uploadcare-file-list_table .uploadcare-zoomable-icon:after{width:55px}.uploadcare-file-list_tiles .uploadcare-file-item{text-align:left;position:relative;display:inline-block;vertical-align:top;width:170px;min-height:170px;padding:0 20px 10px 0}.uploadcare-file-list_tiles .uploadcare-file-item>*{padding-bottom:10px}.uploadcare-file-list_tiles .uploadcare-file-item__name{padding-top:10px}.uploadcare-file-list_tiles .uploadcare-file-item__remove{position:absolute;top:0;right:10px}.uploadcare-file-list_tiles .uploadcare-file-item__preview{white-space:nowrap;width:170px;height:170px;padding-bottom:0}.uploadcare-file-list_tiles .uploadcare-file-item__preview:before{display:inline-block;vertical-align:middle;content:'';height:100%;position:static;width:0}.uploadcare-file-list_tiles .uploadcare-file-item__preview img{display:inline-block;vertical-align:middle;white-space:normal}.uploadcare-file-list_tiles .uploadcare-file-item_error .uploadcare-file-item__preview,.uploadcare-file-list_tiles .uploadcare-file-item_uploaded .uploadcare-file-item__name,.uploadcare-file-list_tiles .uploadcare-file-item_uploaded .uploadcare-file-item__size,.uploadcare-file-list_tiles .uploadcare-file-item_uploading .uploadcare-file-item__preview{display:none}.uploadcare-file-icon,.uploadcare-file-item__error:before{content:'';display:inline-block;width:20px;height:20px;margin:-3.5px .7em -3.5px 0}.uploadcare-file-item{font-size:13px;line-height:1.2}.uploadcare-file-item:hover .uploadcare-file-item__remove{visibility:visible}.uploadcare-file-item:hover .uploadcare-zoomable-icon:after{display:block}.uploadcare-file-item_error .uploadcare-file-item__progressbar,.uploadcare-file-item_error .uploadcare-file-item__size,.uploadcare-file-item_uploaded .uploadcare-file-item__error,.uploadcare-file-item_uploaded .uploadcare-file-item__progressbar,.uploadcare-file-item_uploading .uploadcare-file-item__error{display:none}.uploadcare-file-item__preview{text-align:center;line-height:0}.uploadcare-file-item__preview>img{display:inline-block;width:auto;height:auto;max-width:100%;max-height:100%}.uploadcare-file-item__name{width:100%;word-wrap:break-word}.uploadcare-file-item__error{width:200px;color:#f5444b}.uploadcare-file-item__remove{visibility:hidden;width:20px;text-align:right;line-height:0}.uploadcare-remove{width:20px;height:20px;cursor:pointer}.uploadcare-zoomable-icon{position:relative;cursor:pointer}.uploadcare-zoomable-icon:after{content:'';position:absolute;top:0;left:0;display:none;width:100%;height:100%;background-size:45px 45px;background-repeat:no-repeat;background-position:center}.uploadcare-progressbar{width:100%;height:8px;background:#e0e0e0;border-radius:100px}.uploadcare-progressbar__value{height:100%;background:#d6b849;border-radius:100px}.uploadcare-file-icon{margin:0}.uploadcare-dialog-padding{padding:22px 25px}.uploadcare-dialog-remote-iframe-wrap{overflow:auto;-webkit-overflow-scrolling:touch}.uploadcare-dialog-remote-iframe{display:block;width:100%;height:100%;border:0;opacity:0}.uploadcare-hidden,.uploadcare-if-mobile,.uploadcare-panel-footer-counter,.uploadcare-panel-footer__summary{display:none}.uploadcare-dialog-multiple .uploadcare-panel-footer__summary{display:block}@media screen and (max-width:760px){.uploadcare-dialog-opened{overflow:visible!important;position:static!important;width:auto!important;height:auto!important;min-width:0!important;background:#efefef!important}body.uploadcare-dialog-opened>.uploadcare-inactive,body.uploadcare-dialog-opened>:not(.uploadcare-dialog){display:none!important}.uploadcare-if-mobile{display:block}.uploadcare-if-no-mobile{display:none}.uploadcare-dialog{position:absolute;overflow:visible;-webkit-text-size-adjust:100%}.uploadcare-dialog:before{display:none}.uploadcare-dialog-inner-wrap{padding:0;min-width:310px;height:100%}.uploadcare-dialog-close{position:fixed;z-index:2;color:#000;width:50px;height:50px;line-height:45px}.uploadcare-dialog-footer{display:none}.uploadcare-responsive-panel .uploadcare-dialog-panel{overflow:visible;height:100%;padding:50px 0 0;border-radius:0;box-shadow:none}.uploadcare-responsive-panel .uploadcare-dialog-panel.uploadcare-panel-hide-tabs{padding-top:0}.uploadcare-responsive-panel .uploadcare-dialog-tabs-panel{height:auto}.uploadcare-responsive-panel .uploadcare-dialog-remote-iframe-wrap{overflow:visible;height:100%}.uploadcare-responsive-panel .uploadcare-dialog-padding{padding:22px 15px}.uploadcare-responsive-panel .uploadcare-dialog-preview-image-wrap,.uploadcare-responsive-panel .uploadcare-dialog-preview-video-wrap{top:auto;height:auto;padding-bottom:50px}.uploadcare-responsive-panel .uploadcare-dialog-preview-image,.uploadcare-responsive-panel .uploadcare-dialog-preview-video{max-height:450px}.uploadcare-responsive-panel .uploadcare-file-list{height:auto;margin:0 -15px 0 0}.uploadcare-responsive-panel .uploadcare-file-list_table .uploadcare-file-item>*{padding-right:10px}.uploadcare-responsive-panel .uploadcare-file-list_table .uploadcare-file-item__progressbar{width:40px}.uploadcare-responsive-panel .uploadcare-file-list_tiles .uploadcare-file-item{width:140px;min-height:140px;padding-right:10px}.uploadcare-responsive-panel .uploadcare-file-list_tiles .uploadcare-file-item__preview{width:140px;height:140px}.uploadcare-responsive-panel .uploadcare-file-list_tiles .uploadcare-file-item__remove{right:10px}.uploadcare-responsive-panel .uploadcare-file-item__remove{visibility:visible}.uploadcare-responsive-panel .uploadcare-dialog-file-or,.uploadcare-responsive-panel .uploadcare-dialog-file-sources,.uploadcare-responsive-panel .uploadcare-dialog-file-title{display:none}.uploadcare-responsive-panel .uploadcare-dialog-file-drop-area{padding-top:0;border:0;background:0 0}.uploadcare-responsive-panel .uploadcare-dialog-big-button{margin:110px 0 0}.uploadcare-responsive-panel .uploadcare-clouds-tip{color:#909498;font-size:.75em;line-height:1.4;text-align:left;padding:10px 0 0 50px}.uploadcare-responsive-panel .uploadcare-clouds-tip:before{background-image:url("https://ucarecdn.com/widget/2.10.0/uploadcare/images/arrow.png");background-repeat:no-repeat;background-size:51px 33px;content:'';position:absolute;margin:-20px -36px;display:block;width:28px;height:30px}.uploadcare-responsive-panel .uploadcare-dialog-opened-tabs .uploadcare-dialog-tab.uploadcare-dialog-tab-camera{display:none}.uploadcare-responsive-panel .uploadcare-dialog-camera-holder{height:auto}.uploadcare-responsive-panel .uploadcare-dialog-camera-mirror{right:15px}.uploadcare-responsive-panel .uploadcare-panel-footer{position:fixed;left:0;bottom:0;width:100%;min-width:310px;height:50px;padding:9px 15px 0;background:rgba(255,243,190,.95)}.uploadcare-responsive-panel .uploadcare-panel-footer-text{display:none}.uploadcare-responsive-panel .uploadcare-panel-footer-counter{display:inline}.uploadcare-responsive-panel .uploadcare-dialog-multiple.uploadcare-dialog-panel{padding-bottom:50px}.uploadcare-responsive-panel .uploadcare-dialog-multiple .uploadcare-dialog-remote-iframe-wrap:after{content:'';display:block;height:50px}.uploadcare-responsive-panel .uploadcare-dialog-multiple .uploadcare-dialog-padding{padding-bottom:72px}.uploadcare-responsive-panel .uploadcare-dialog-tabs{position:fixed;top:0;left:0;width:100%;min-width:310px;height:auto;float:none;margin:0;z-index:1;background:0 0}.uploadcare-responsive-panel .uploadcare-dialog-tab{display:none;height:50px;white-space:nowrap;background:#dee0e1}.uploadcare-responsive-panel .uploadcare-dialog-tab .uploadcare-dialog-icon,.uploadcare-responsive-panel .uploadcare-dialog-tab:before{position:static;margin:0 6px;vertical-align:middle;opacity:1}.uploadcare-responsive-panel .uploadcare-dialog-tab_current{display:block;background:rgba(239,239,239,.95)}.uploadcare-responsive-panel .uploadcare-dialog-tab:after{content:attr(title);font-size:20px;vertical-align:middle}.uploadcare-responsive-panel .uploadcare-dialog-opened-tabs .uploadcare-dialog-tabs-panel_current,.uploadcare-responsive-panel .uploadcare-dialog-opened-tabs .uploadcare-panel-footer{display:none}.uploadcare-responsive-panel .uploadcare-dialog-opened-tabs .uploadcare-dialog-tabs{position:absolute;z-index:3}.uploadcare-responsive-panel .uploadcare-dialog-opened-tabs .uploadcare-dialog-tab{display:block}.uploadcare-responsive-panel .uploadcare-dialog-opened-tabs .uploadcare-dialog-tab_current{background:#efefef}.uploadcare-responsive-panel .uploadcare-dialog-panel:not(.uploadcare-dialog-opened-tabs) .uploadcare-dialog-tab_current{text-align:center}.uploadcare-responsive-panel .uploadcare-dialog-panel:not(.uploadcare-dialog-opened-tabs) .uploadcare-dialog-tab_current:after{content:'';position:absolute;top:16px;left:14px;display:block;width:22px;height:18px;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAOCAQAAAD+6Ta3AAAARklEQVR4Ae3SsRFEIQhAwW1IR2s3s6zTGUN+AxdK5tucAIBmOuKSY2pQbHHZVhgiweAnEixW1uC0VdSU41Xo19+te73+9AGOg1FzTMH13gAAAABJRU5ErkJggg==);background-size:22px}.uploadcare-responsive-panel .uploadcare-crop-sizes{top:auto;margin-bottom:15px}.uploadcare-responsive-panel .uploadcare-crop-size{margin:0 10px}}.uploadcare-crop-widget.jcrop-holder{direction:ltr;text-align:left;z-index:0}.uploadcare-crop-widget .jcrop-hline,.uploadcare-crop-widget .jcrop-vline{z-index:320}.uploadcare-crop-widget .jcrop-handle,.uploadcare-crop-widget .jcrop-hline,.uploadcare-crop-widget .jcrop-vline{position:absolute;font-size:0;background-color:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.2)}.uploadcare-crop-widget .jcrop-vline{height:100%;width:1px!important}.uploadcare-crop-widget .jcrop-hline{height:1px!important;width:100%}.uploadcare-crop-widget .jcrop-vline.right{right:0}.uploadcare-crop-widget .jcrop-hline.bottom{bottom:0}.uploadcare-crop-widget .jcrop-tracker{height:100%;width:100%;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.uploadcare-crop-widget .jcrop-handle{border-radius:50%;width:13px;height:13px;z-index:330}.uploadcare-crop-widget .jcrop-handle:after,.uploadcare-crop-widget .jcrop-handle:before{content:"";position:absolute;display:block;width:1px;height:1px;background:#fff}.uploadcare-crop-widget .jcrop-handle:before{width:3px;top:6px}.uploadcare-crop-widget .jcrop-handle:after{height:3px;left:6px}.uploadcare-crop-widget .jcrop-handle.ord-nw:before,.uploadcare-crop-widget .jcrop-handle.ord-sw:before{left:12px}.uploadcare-crop-widget .jcrop-handle.ord-ne:before,.uploadcare-crop-widget .jcrop-handle.ord-se:before{left:-2px}.uploadcare-crop-widget .jcrop-handle.ord-ne:after,.uploadcare-crop-widget .jcrop-handle.ord-nw:after{top:12px}.uploadcare-crop-widget .jcrop-handle.ord-se:after,.uploadcare-crop-widget .jcrop-handle.ord-sw:after{top:-2px}.uploadcare-crop-widget .jcrop-handle.ord-nw{left:0;margin-left:-6px;margin-top:-6px;top:0}.uploadcare-crop-widget .jcrop-handle.ord-ne{margin-right:-6px;margin-top:-6px;right:0;top:0}.uploadcare-crop-widget .jcrop-handle.ord-se{bottom:0;margin-bottom:-6px;margin-right:-6px;right:0}.uploadcare-crop-widget .jcrop-handle.ord-sw{bottom:0;left:0;margin-bottom:-6px;margin-left:-6px}.uploadcare-crop-widget img.jcrop-preview,.uploadcare-crop-widget.jcrop-holder img{max-width:none}.uploadcare-crop-widget{display:inline-block;vertical-align:middle;white-space:normal}.uploadcare-crop-widget .jcrop-handle>div{width:35px;height:35px;margin:-11px}.uploadcare-crop-widget>div:first-child{-webkit-transform:translateZ(0);transform:translateZ(0)}.uploadcare-crop-widget>img{-webkit-filter:grayscale(50%);filter:grayscale(50%)}.uploadcare-crop-sizes{display:none;visibility:hidden;position:relative;top:433px;text-align:center}.uploadcare-dialog-preview--with-sizes .uploadcare-crop-sizes{display:block}.uploadcare-dialog-preview--loaded .uploadcare-crop-sizes{visibility:visible}.uploadcare-crop-size{position:relative;display:inline-block;width:40px;height:40px;line-height:40px;margin:0 20px;font-size:.55em;cursor:pointer;color:#444}.uploadcare-crop-size div{box-sizing:border-box;width:40px;height:30px;display:inline-block;vertical-align:middle;border:1px solid #ccc}.uploadcare-crop-size:after{content:attr(data-caption);position:absolute;top:1px;left:0;width:100%;text-align:center;margin:0}.uploadcare-crop-size--current div{background:#fff}.uploadcare-widget{position:relative;display:inline-block;vertical-align:baseline;line-height:2}.uploadcare-widget :focus{outline:2px dotted #0094c0}.uploadcare-widget .uploadcare-mouse-focused:focus,.uploadcare-widget :active{outline:none}.uploadcare-widget-status-error .uploadcare-widget-button-open,.uploadcare-widget-status-error .uploadcare-widget-text,.uploadcare-widget-status-loaded .uploadcare-widget-text,.uploadcare-widget-status-ready .uploadcare-widget-button-open,.uploadcare-widget-status-started .uploadcare-widget-button-cancel,.uploadcare-widget-status-started .uploadcare-widget-status,.uploadcare-widget-status-started .uploadcare-widget-text{display:inline-block!important}.uploadcare-widget-option-clearable.uploadcare-widget-status-error .uploadcare-widget-button-open{display:none!important}.uploadcare-widget-option-clearable.uploadcare-widget-status-error .uploadcare-widget-button-remove,.uploadcare-widget-option-clearable.uploadcare-widget-status-loaded .uploadcare-widget-button-remove{display:inline-block!important}.uploadcare-widget-status{display:none!important;width:1.8em;height:1.8em;margin:-1em 1ex -1em 0;line-height:0;vertical-align:middle}.uploadcare-widget-circle--text .uploadcare-widget-circle-back{width:100%;height:100%;display:table;white-space:normal}.uploadcare-widget-circle--text .uploadcare-widget-circle-text{display:table-cell;vertical-align:middle;text-align:center;font-size:60%;line-height:1}.uploadcare-widget-circle--canvas{color:#d0bf26;border-color:#e1e5e7}.uploadcare-widget-circle--canvas canvas{width:100%;height:100%}.uploadcare-widget-text{display:none!important;margin-right:1ex;white-space:nowrap}.uploadcare-widget-file-name,.uploadcare-widget-file-size{display:inline}.uploadcare-link,.uploadcare-link:link,.uploadcare-link:visited{cursor:pointer;color:#1a85ad;text-decoration:none;border-bottom:1px dotted #1a85ad;border-color:initial}.uploadcare-link:hover{color:#176e8f}.uploadcare-widget-button{display:none!important;color:#fff;padding:.4em .6em;line-height:1;margin:-1em .5ex -1em 0;border-radius:.25em;background:#c3c3c3;cursor:default;white-space:nowrap}.uploadcare-widget-button:hover{background:#b3b3b3}.uploadcare-widget-button-open{padding:.5em .8em;background:#18a5d0}.uploadcare-widget-button-open:hover{background:#0094c0}.uploadcare-widget-dragndrop-area{box-sizing:content-box;display:none;position:absolute;white-space:nowrap;top:50%;margin-top:-1.3em;left:-1em;padding:0 1em;line-height:2.6;min-width:100%;text-align:center;background-color:#f0f0f0;color:#707478;border:1px dashed #b3b5b6;border-radius:100px}.uploadcare-widget.uploadcare-dragging .uploadcare-widget-dragndrop-area{background-color:#f2f7fe;border-color:#438ae7;color:#438ae7}.uploadcare-dragging .uploadcare-widget-dragndrop-area{display:block}.uploadcare-dialog-opened .uploadcare-widget-dragndrop-area{display:none}
+</style>
+
+<title>Example Scene</title>
+<meta aframe-injected="" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui"><meta aframe-injected="" name="mobile-web-app-capable" content="yes"><meta aframe-injected="" name="theme-color" content="black"><script async="" src="./Example Scene_files/analytics.js" data-aframe-inspector=""></script><script src="./Example Scene_files/aframe-master.min.js"></script><style type="text/css" data-href="src/style/aframe.css">.a-html{bottom:0;left:0;position:fixed;right:0;top:0}.a-body{height:100%;margin:0;overflow:hidden;padding:0;width:100%}:-webkit-full-screen{background-color:transparent}.a-hidden{display:none!important}.a-canvas{height:100%;left:0;position:absolute;top:0;width:100%}.a-canvas.a-grab-cursor:hover{cursor:grab;cursor:-moz-grab;cursor:-webkit-grab}.a-canvas.a-grab-cursor:active,.a-grabbing{cursor:grabbing;cursor:-moz-grabbing;cursor:-webkit-grabbing}a-scene.fullscreen .a-canvas{width:100%!important;height:100%!important;top:0!important;left:0!important;right:0!important;bottom:0!important;position:fixed!important}.a-inspector-loader{background-color:#ed3160;position:fixed;left:3px;top:3px;padding:6px 10px;color:#fff;text-decoration:none;font-size:12px;font-family:Roboto,sans-serif;text-align:center;z-index:99999;width:204px}@keyframes dots-1{from{opacity:0}25%{opacity:1}}@keyframes dots-2{from{opacity:0}50%{opacity:1}}@keyframes dots-3{from{opacity:0}75%{opacity:1}}@-webkit-keyframes dots-1{from{opacity:0}25%{opacity:1}}@-webkit-keyframes dots-2{from{opacity:0}50%{opacity:1}}@-webkit-keyframes dots-3{from{opacity:0}75%{opacity:1}}.a-inspector-loader .dots span{animation:dots-1 2s infinite steps(1);-webkit-animation:dots-1 2s infinite steps(1)}.a-inspector-loader .dots span:first-child+span{animation-name:dots-2;-webkit-animation-name:dots-2}.a-inspector-loader .dots span:first-child+span+span{animation-name:dots-3;-webkit-animation-name:dots-3}a-scene{display:block;position:relative;height:100%;width:100%}a-assets,a-scene audio,a-scene img,a-scene video{display:none}.a-enter-vr-modal,.a-orientation-modal{font-family:Consolas,Andale Mono,Courier New,monospace}.a-enter-vr-modal a{border-bottom:1px solid #fff;padding:2px 0;text-decoration:none;transition:.1s color ease-in}.a-enter-vr-modal a:hover{background-color:#fff;color:#111;padding:2px 4px;position:relative;left:-4px}.a-enter-vr{font-family:sans-serif,monospace;font-size:13px;width:100%;font-weight:200;line-height:16px;position:absolute;right:20px;bottom:20px}.a-enter-vr.embedded{right:5px;bottom:5px}.a-enter-vr-button,.a-enter-vr-modal,.a-enter-vr-modal a{color:#fff}.a-enter-vr-button{background:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20245.82%20141.73%22%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill%3A%23fff%3Bfill-rule%3Aevenodd%3B%7D%3C%2Fstyle%3E%3C%2Fdefs%3E%3Ctitle%3Emask%3C%2Ftitle%3E%3Cpath%20class%3D%22a%22%20d%3D%22M175.56%2C111.37c-22.52%2C0-40.77-18.84-40.77-42.07S153%2C27.24%2C175.56%2C27.24s40.77%2C18.84%2C40.77%2C42.07S198.08%2C111.37%2C175.56%2C111.37ZM26.84%2C69.31c0-23.23%2C18.25-42.07%2C40.77-42.07s40.77%2C18.84%2C40.77%2C42.07-18.26%2C42.07-40.77%2C42.07S26.84%2C92.54%2C26.84%2C69.31ZM27.27%2C0C11.54%2C0%2C0%2C12.34%2C0%2C28.58V110.9c0%2C16.24%2C11.54%2C30.83%2C27.27%2C30.83H99.57c2.17%2C0%2C4.19-1.83%2C5.4-3.7L116.47%2C118a8%2C8%2C0%2C0%2C1%2C12.52-.18l11.51%2C20.34c1.2%2C1.86%2C3.22%2C3.61%2C5.39%2C3.61h72.29c15.74%2C0%2C27.63-14.6%2C27.63-30.83V28.58C245.82%2C12.34%2C233.93%2C0%2C218.19%2C0H27.27Z%22%2F%3E%3C%2Fsvg%3E) 50% 50%/70% 70% no-repeat rgba(0,0,0,.35);border:0;bottom:0;cursor:pointer;min-width:50px;min-height:30px;padding-right:5%;padding-top:4%;position:absolute;right:0;transition:background-color .05s ease;-webkit-transition:background-color .05s ease;z-index:9999}.a-enter-vr-button:active,.a-enter-vr-button:hover{background-color:#666}[data-a-enter-vr-no-webvr] .a-enter-vr-button{border-color:#666;opacity:.65}[data-a-enter-vr-no-webvr] .a-enter-vr-button:active,[data-a-enter-vr-no-webvr] .a-enter-vr-button:hover{background-color:rgba(0,0,0,.35);cursor:not-allowed}.a-enter-vr-modal{background-color:#666;border-radius:0;display:none;min-height:32px;margin-right:70px;padding:9px;width:280px;right:2%;position:absolute}.a-enter-vr-modal:after{border-bottom:10px solid transparent;border-left:10px solid #666;border-top:10px solid transparent;display:inline-block;content:'';position:absolute;right:-5px;top:5px;width:0;height:0}.a-enter-vr-modal a,.a-enter-vr-modal p{display:inline}.a-enter-vr-modal p{margin:0}.a-enter-vr-modal p:after{content:' '}[data-a-enter-vr-no-headset].a-enter-vr:hover .a-enter-vr-modal,[data-a-enter-vr-no-webvr].a-enter-vr:hover .a-enter-vr-modal{display:block}.a-orientation-modal{background:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20version%3D%221.1%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2090%2090%22%20enable-background%3D%22new%200%200%2090%2090%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpolygon%20points%3D%220%2C0%200%2C0%200%2C0%20%22%3E%3C/polygon%3E%3Cg%3E%3Cpath%20d%3D%22M71.545%2C48.145h-31.98V20.743c0-2.627-2.138-4.765-4.765-4.765H18.456c-2.628%2C0-4.767%2C2.138-4.767%2C4.765v42.789%20%20%20c0%2C2.628%2C2.138%2C4.766%2C4.767%2C4.766h5.535v0.959c0%2C2.628%2C2.138%2C4.765%2C4.766%2C4.765h42.788c2.628%2C0%2C4.766-2.137%2C4.766-4.765V52.914%20%20%20C76.311%2C50.284%2C74.173%2C48.145%2C71.545%2C48.145z%20M18.455%2C16.935h16.344c2.1%2C0%2C3.808%2C1.708%2C3.808%2C3.808v27.401H37.25V22.636%20%20%20c0-0.264-0.215-0.478-0.479-0.478H16.482c-0.264%2C0-0.479%2C0.214-0.479%2C0.478v36.585c0%2C0.264%2C0.215%2C0.478%2C0.479%2C0.478h7.507v7.644%20%20%20h-5.534c-2.101%2C0-3.81-1.709-3.81-3.81V20.743C14.645%2C18.643%2C16.354%2C16.935%2C18.455%2C16.935z%20M16.96%2C23.116h19.331v25.031h-7.535%20%20%20c-2.628%2C0-4.766%2C2.139-4.766%2C4.768v5.828h-7.03V23.116z%20M71.545%2C73.064H28.757c-2.101%2C0-3.81-1.708-3.81-3.808V52.914%20%20%20c0-2.102%2C1.709-3.812%2C3.81-3.812h42.788c2.1%2C0%2C3.809%2C1.71%2C3.809%2C3.812v16.343C75.354%2C71.356%2C73.645%2C73.064%2C71.545%2C73.064z%22%3E%3C/path%3E%3Cpath%20d%3D%22M28.919%2C58.424c-1.466%2C0-2.659%2C1.193-2.659%2C2.66c0%2C1.466%2C1.193%2C2.658%2C2.659%2C2.658c1.468%2C0%2C2.662-1.192%2C2.662-2.658%20%20%20C31.581%2C59.617%2C30.387%2C58.424%2C28.919%2C58.424z%20M28.919%2C62.786c-0.939%2C0-1.703-0.764-1.703-1.702c0-0.939%2C0.764-1.704%2C1.703-1.704%20%20%20c0.94%2C0%2C1.705%2C0.765%2C1.705%2C1.704C30.623%2C62.022%2C29.858%2C62.786%2C28.919%2C62.786z%22%3E%3C/path%3E%3Cpath%20d%3D%22M69.654%2C50.461H33.069c-0.264%2C0-0.479%2C0.215-0.479%2C0.479v20.288c0%2C0.264%2C0.215%2C0.478%2C0.479%2C0.478h36.585%20%20%20c0.263%2C0%2C0.477-0.214%2C0.477-0.478V50.939C70.131%2C50.676%2C69.917%2C50.461%2C69.654%2C50.461z%20M69.174%2C51.417V70.75H33.548V51.417H69.174z%22%3E%3C/path%3E%3Cpath%20d%3D%22M45.201%2C30.296c6.651%2C0%2C12.233%2C5.351%2C12.551%2C11.977l-3.033-2.638c-0.193-0.165-0.507-0.142-0.675%2C0.048%20%20%20c-0.174%2C0.198-0.153%2C0.501%2C0.045%2C0.676l3.883%2C3.375c0.09%2C0.075%2C0.198%2C0.115%2C0.312%2C0.115c0.141%2C0%2C0.273-0.061%2C0.362-0.166%20%20%20l3.371-3.877c0.173-0.2%2C0.151-0.502-0.047-0.675c-0.194-0.166-0.508-0.144-0.676%2C0.048l-2.592%2C2.979%20%20%20c-0.18-3.417-1.629-6.605-4.099-9.001c-2.538-2.461-5.877-3.817-9.404-3.817c-0.264%2C0-0.479%2C0.215-0.479%2C0.479%20%20%20C44.72%2C30.083%2C44.936%2C30.296%2C45.201%2C30.296z%22%3E%3C/path%3E%3C/g%3E%3C/svg%3E) center/50% 50% no-repeat rgba(244,244,244,1);bottom:0;font-size:14px;font-weight:600;left:0;line-height:20px;right:0;position:fixed;top:0;z-index:9999999}.a-orientation-modal:after{color:#666;content:"Insert phone into Cardboard holder.";display:block;position:absolute;text-align:center;top:70%;transform:translateY(-70%);width:100%}.a-orientation-modal button{background:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20version%3D%221.1%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%20100%20100%22%20enable-background%3D%22new%200%200%20100%20100%22%20xml%3Aspace%3D%22preserve%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M55.209%2C50l17.803-17.803c1.416-1.416%2C1.416-3.713%2C0-5.129c-1.416-1.417-3.713-1.417-5.129%2C0L50.08%2C44.872%20%20L32.278%2C27.069c-1.416-1.417-3.714-1.417-5.129%2C0c-1.417%2C1.416-1.417%2C3.713%2C0%2C5.129L44.951%2C50L27.149%2C67.803%20%20c-1.417%2C1.416-1.417%2C3.713%2C0%2C5.129c0.708%2C0.708%2C1.636%2C1.062%2C2.564%2C1.062c0.928%2C0%2C1.856-0.354%2C2.564-1.062L50.08%2C55.13l17.803%2C17.802%20%20c0.708%2C0.708%2C1.637%2C1.062%2C2.564%2C1.062s1.856-0.354%2C2.564-1.062c1.416-1.416%2C1.416-3.713%2C0-5.129L55.209%2C50z%22%3E%3C/path%3E%3C/svg%3E) no-repeat;border:none;height:50px;text-indent:-9999px;width:50px}</style><style type="text/css" data-href="src/style/rStats.css">.rs-base{background-color:#333;color:#fafafa;border-radius:0;font:10px monospace;left:5px;line-height:1em;opacity:.85;overflow:hidden;padding:10px;position:fixed;top:5px;width:300px;z-index:10000}.rs-base div.hidden{display:none}.rs-base h1{color:#fff;cursor:pointer;font-size:1.4em;font-weight:300;margin:0 0 5px;padding:0}.rs-group{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-direction:column-reverse;flex-direction:column-reverse;margin-bottom:5px}.rs-group:last-child{margin-bottom:0}.rs-counter-base{align-items:center;display:-webkit-box;display:-webkit-flex;display:flex;height:10px;-webkit-justify-content:space-between;justify-content:space-between;margin:2px 0}.rs-counter-base.alarm{color:#b70000;text-shadow:0 0 0 #b70000,0 0 1px #fff,0 0 1px #fff,0 0 2px #fff,0 0 2px #fff,0 0 3px #fff,0 0 3px #fff,0 0 4px #fff,0 0 4px #fff}.rs-counter-id{font-weight:300;-webkit-box-ordinal-group:0;-webkit-order:0;order:0;width:54px}.rs-counter-value{font-weight:300;-webkit-box-ordinal-group:1;-webkit-order:1;order:1;text-align:right;width:35px}.rs-canvas{-webkit-box-ordinal-group:2;-webkit-order:2;order:2}@media (min-width:480px){.rs-base{left:20px;top:20px}}</style>
+<script src="./Example Scene_files/aframe-environment-component.min.js"></script>
+<style type="text/css">/**
+ * React Select
+ * ============
+ * Created by Jed Watson and Joss Mackison for KeystoneJS, http://www.keystonejs.com/
+ * https://twitter.com/jedwatson https://twitter.com/jossmackison https://twitter.com/keystonejs
+ * MIT License: https://github.com/JedWatson/react-select
+*/
+.Select {
+  position: relative;
+}
+.Select input::-webkit-contacts-auto-fill-button,
+.Select input::-webkit-credentials-auto-fill-button {
+  display: none !important;
+}
+.Select input::-ms-clear {
+  display: none !important;
+}
+.Select input::-ms-reveal {
+  display: none !important;
+}
+.Select,
+.Select div,
+.Select input,
+.Select span {
+  box-sizing: border-box;
+}
+.Select.is-disabled .Select-arrow-zone {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.35;
+}
+.Select.is-disabled > .Select-control {
+  background-color: #f9f9f9;
+}
+.Select.is-disabled > .Select-control:hover {
+  box-shadow: none;
+}
+.Select.is-open > .Select-control {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background: #fff;
+  border-color: #b3b3b3 #ccc #d9d9d9;
+}
+.Select.is-open > .Select-control .Select-arrow {
+  top: -2px;
+  border-color: transparent transparent #999;
+  border-width: 0 5px 5px;
+}
+.Select.is-searchable.is-open > .Select-control {
+  cursor: text;
+}
+.Select.is-searchable.is-focused:not(.is-open) > .Select-control {
+  cursor: text;
+}
+.Select.is-focused > .Select-control {
+  background: #fff;
+}
+.Select.is-focused:not(.is-open) > .Select-control {
+  border-color: #007eff;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 0 3px rgba(0, 126, 255, 0.1);
+  background: #fff;
+}
+.Select.has-value.is-clearable.Select--single > .Select-control .Select-value {
+  padding-right: 42px;
+}
+.Select.has-value.Select--single > .Select-control .Select-value .Select-value-label,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label {
+  color: #333;
+}
+.Select.has-value.Select--single > .Select-control .Select-value a.Select-value-label,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label {
+  cursor: pointer;
+  text-decoration: none;
+}
+.Select.has-value.Select--single > .Select-control .Select-value a.Select-value-label:hover,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label:hover,
+.Select.has-value.Select--single > .Select-control .Select-value a.Select-value-label:focus,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label:focus {
+  color: #007eff;
+  outline: none;
+  text-decoration: underline;
+}
+.Select.has-value.Select--single > .Select-control .Select-value a.Select-value-label:focus,
+.Select.has-value.is-pseudo-focused.Select--single > .Select-control .Select-value a.Select-value-label:focus {
+  background: #fff;
+}
+.Select.has-value.is-pseudo-focused .Select-input {
+  opacity: 0;
+}
+.Select.is-open .Select-arrow,
+.Select .Select-arrow-zone:hover > .Select-arrow {
+  border-top-color: #666;
+}
+.Select.Select--rtl {
+  direction: rtl;
+  text-align: right;
+}
+.Select-control {
+  background-color: #fff;
+  border-color: #d9d9d9 #ccc #b3b3b3;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  color: #333;
+  cursor: default;
+  display: table;
+  border-spacing: 0;
+  border-collapse: separate;
+  height: 36px;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.Select-control:hover {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+.Select-control .Select-input:focus {
+  outline: none;
+  background: #fff;
+}
+.Select-placeholder,
+.Select--single > .Select-control .Select-value {
+  bottom: 0;
+  color: #aaa;
+  left: 0;
+  line-height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.Select-input {
+  height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+.Select-input > input {
+  width: 100%;
+  background: none transparent;
+  border: 0 none;
+  box-shadow: none;
+  cursor: default;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  outline: none;
+  line-height: 17px;
+  /* For IE 8 compatibility */
+  padding: 8px 0 12px;
+  /* For IE 8 compatibility */
+  -webkit-appearance: none;
+}
+.is-focused .Select-input > input {
+  cursor: text;
+}
+.has-value.is-pseudo-focused .Select-input {
+  opacity: 0;
+}
+.Select-control:not(.is-searchable) > .Select-input {
+  outline: none;
+}
+.Select-loading-zone {
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 16px;
+}
+.Select-loading {
+  animation: Select-animation-spin 400ms infinite linear;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-right-color: #333;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+.Select-clear-zone {
+  animation: Select-animation-fadeIn 200ms;
+  color: #999;
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 17px;
+}
+.Select-clear-zone:hover {
+  color: #D0021B;
+}
+.Select-clear {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1;
+}
+.Select--multi .Select-clear-zone {
+  width: 17px;
+}
+.Select-arrow-zone {
+  cursor: pointer;
+  display: table-cell;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 25px;
+  padding-right: 5px;
+}
+.Select--rtl .Select-arrow-zone {
+  padding-right: 0;
+  padding-left: 5px;
+}
+.Select-arrow {
+  border-color: #999 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 2.5px;
+  display: inline-block;
+  height: 0;
+  width: 0;
+  position: relative;
+}
+.Select-control > *:last-child {
+  padding-right: 5px;
+}
+.Select--multi .Select-multi-value-wrapper {
+  display: inline-block;
+}
+.Select .Select-aria-only {
+  position: absolute;
+  display: inline-block;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  float: left;
+}
+@keyframes Select-animation-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.Select-menu-outer {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top-color: #e6e6e6;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 200px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+  -webkit-overflow-scrolling: touch;
+}
+.Select-menu {
+  max-height: 198px;
+  overflow-y: auto;
+}
+.Select-option {
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #666666;
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+}
+.Select-option:last-child {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.Select-option.is-selected {
+  background-color: #f5faff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 126, 255, 0.04);
+  color: #333;
+}
+.Select-option.is-focused {
+  background-color: #ebf5ff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 126, 255, 0.08);
+  color: #333;
+}
+.Select-option.is-disabled {
+  color: #cccccc;
+  cursor: default;
+}
+.Select-noresults {
+  box-sizing: border-box;
+  color: #999999;
+  cursor: default;
+  display: block;
+  padding: 8px 10px;
+}
+.Select--multi .Select-input {
+  vertical-align: middle;
+  margin-left: 10px;
+  padding: 0;
+}
+.Select--multi.Select--rtl .Select-input {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.Select--multi.has-value .Select-input {
+  margin-left: 5px;
+}
+.Select--multi .Select-value {
+  background-color: #ebf5ff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 126, 255, 0.08);
+  border-radius: 2px;
+  border: 1px solid #c2e0ff;
+  /* Fallback color for IE 8 */
+  border: 1px solid rgba(0, 126, 255, 0.24);
+  color: #007eff;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin-left: 5px;
+  margin-top: 5px;
+  vertical-align: top;
+}
+.Select--multi .Select-value-icon,
+.Select--multi .Select-value-label {
+  display: inline-block;
+  vertical-align: middle;
+}
+.Select--multi .Select-value-label {
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  cursor: default;
+  padding: 2px 5px;
+}
+.Select--multi a.Select-value-label {
+  color: #007eff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.Select--multi a.Select-value-label:hover {
+  text-decoration: underline;
+}
+.Select--multi .Select-value-icon {
+  cursor: pointer;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+  border-right: 1px solid #c2e0ff;
+  /* Fallback color for IE 8 */
+  border-right: 1px solid rgba(0, 126, 255, 0.24);
+  padding: 1px 5px 3px;
+}
+.Select--multi .Select-value-icon:hover,
+.Select--multi .Select-value-icon:focus {
+  background-color: #d8eafd;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 113, 230, 0.08);
+  color: #0071e6;
+}
+.Select--multi .Select-value-icon:active {
+  background-color: #c2e0ff;
+  /* Fallback color for IE 8 */
+  background-color: rgba(0, 126, 255, 0.24);
+}
+.Select--multi.Select--rtl .Select-value {
+  margin-left: 0;
+  margin-right: 5px;
+}
+.Select--multi.Select--rtl .Select-value-icon {
+  border-right: none;
+  border-left: 1px solid #c2e0ff;
+  /* Fallback color for IE 8 */
+  border-left: 1px solid rgba(0, 126, 255, 0.24);
+}
+.Select--multi.is-disabled .Select-value {
+  background-color: #fcfcfc;
+  border: 1px solid #e3e3e3;
+  color: #333;
+}
+.Select--multi.is-disabled .Select-value-icon {
+  cursor: not-allowed;
+  border-right: 1px solid #e3e3e3;
+}
+.Select--multi.is-disabled .Select-value-icon:hover,
+.Select--multi.is-disabled .Select-value-icon:focus,
+.Select--multi.is-disabled .Select-value-icon:active {
+  background-color: #fcfcfc;
+}
+@keyframes Select-animation-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+</style><style type="text/css">body.aframe-inspector-opened,
+.toggle-edit {
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.wf-roboto-n4-active body.aframe-inspector-opened,
+.wf-roboto-n4-active .toggle-edit {
+  font-family: Roboto, BlinkMacSystemFont, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+.Select,
+code,
+pre,
+input,
+textarea,
+select {
+  font-family: Consolas, Andale Mono, Monaco, Courier New, monospace;
+}
+
+.wf-robotomono-n4-active .Select,
+.wf-robotomono-n4-active code,
+.wf-robotomono-n4-active pre,
+.wf-robotomono-n4-active input,
+.wf-robotomono-n4-active textarea,
+.wf-robotomono-n4-active select {
+  font-family: Roboto Mono, Consolas, Andale Mono, Monaco, Courier New, monospace;
+}
+
+body.aframe-inspector-opened {
+  color: #fff;
+  font-size: 12px;
+  margin: 0;
+  overflow: hidden;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+a {
+  cursor: pointer;
+}
+
+button {
+  position: relative;
+}
+
+code {
+  font-family: Consolas, Andale Mono, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+textarea {
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+textarea.success {
+  border-color: #8b8 !important;
+}
+
+textarea.fail {
+  background-color: rgba(255, 0, 0, 0.05);
+  border-color: #f00 !important;
+}
+
+textarea,
+input {
+  outline: none; /* osx */
+}
+
+#left-sidebar,
+#right-panels {
+  z-index: 9998;
+}
+
+#sidebar,
+#left-sidebar,
+.panel {
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.collapsible .static {
+  margin: 0;
+}
+
+.collapsible .static .collapse-button {
+  border: 6px solid transparent;
+  float: left;
+  height: 0;
+  margin-right: 6px;
+  width: 0;
+}
+
+.collapsible.collapsed .static .collapse-button {
+  border-left-color: #1faaf2;
+  margin-top: 2px;
+}
+
+.collapsible:not(.collapsed) .static .collapse-button {
+  border-top-color: #1faaf2;
+  margin-top: 6px;
+}
+
+.collapsible.collapsed .content {
+  display: none;
+}
+
+.toggle-edit {
+  background-color: #ed3160;
+  color: #fff;
+  font-size: 12px;
+  left: 3px;
+  margin: 0;
+  padding: 6px 10px;
+  position: fixed;
+  text-align: center;
+  text-decoration: none;
+  top: 3px;
+  width: 204px;
+  z-index: 99999;
+}
+
+.toggle-edit:hover {
+  background-color: rgb(228, 43, 90);
+}
+
+.scenegraph {
+  border-top: 1px solid #111;
+  padding-top: 32px;
+}
+
+.scenegraph .search {
+  padding: 5px;
+}
+
+.scenegraph-toolbar {
+  background-color: #333;
+}
+
+.scenegraph-actions {
+  padding: 9px 0 5px;
+}
+
+.search {
+  color: #aaa;
+  font-size: 16px;
+  position: relative;
+}
+
+.search input {
+  background: #222;
+  border-radius: 5px;
+  height: 22px;
+  text-indent: 10px;
+  width: 216px;
+}
+
+.search .fa-search {
+  position: absolute;
+  right: 11px;
+  top: 10px;
+}
+
+.search .fa-times {
+  position: absolute;
+  right: 32px;
+  top: 10px;
+}
+
+input {
+  background-color: transparent;
+  border: 1px solid #555;
+  color: #fff;
+}
+
+input,
+.texture canvas {
+  transition: 0.1s background-color ease-in-out, 0.1s border-color ease-in-out, 0.1s color ease-in-out;
+}
+
+input[type=text],
+input[type=number],
+input.string,
+input.number {
+  min-height: 14px;
+  outline: none;
+}
+
+input.number {
+  background-color: transparent !important;
+  border: 0;
+  color: #20b1fb !important;
+  cursor: col-resize;
+  font-size: 12px;
+  padding: 2px;
+}
+
+input.string:focus,
+input.number:focus {
+  border: 1px solid #20b1fb;
+  color: #fff;
+  cursor: auto;
+}
+
+input.error {
+  border: 1px solid #a00;
+}
+
+#left-sidebar {
+  background: #2b2b2b;
+  bottom: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 230px;
+}
+
+#sidebar {
+  background: #2b2b2b;
+  width: 331px;
+}
+
+#sidebar * {
+  vertical-align: middle;
+}
+
+input,
+textarea,
+select {
+  background: #222;
+  border: 1px solid transparent;
+  color: #888;
+}
+
+.row {
+  margin-bottom: 10px;
+  min-height: 20px;
+}
+
+input[type=color] {
+  background-color: #333;
+  border: 1px solid #111;
+  cursor: pointer;
+}
+
+.texture canvas {
+  border: 1px solid #222;
+  cursor: pointer;
+}
+
+.texture canvas:hover {
+  border-color: #1faaf2;
+}
+
+input[type=color] {
+  cursor: pointer;
+  height: 16px;
+  padding: 0;
+  width: 64px;
+}
+
+/* Note: these vendor-prefixed selectors cannot be grouped! */
+
+input[type=color]::-webkit-color-swatch {
+  border: 0;  /* To remove the gray border. */
+}
+
+input[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;  /* To remove the inner padding. */
+}
+
+input[type=color]::-moz-color-swatch {
+  border: 0;
+}
+
+input[type=color]::-moz-focus-inner {
+  border: 0;  /* To remove the inner border (specific to Firefox). */
+  padding: 0;
+}
+
+.components {
+  background-color: #323232;
+  color: #bcbcbc;
+  height: 100%;
+  overflow: auto;
+  position: fixed;
+  width: 331px;
+}
+
+div.vec2,
+div.vec3,
+div.vec4 {
+  display: inline;
+}
+
+.vec2 input.number,
+.vec3 input.number {
+  width: 46px;
+}
+
+.vec4 input.number {
+  width: 34px;
+}
+
+.collapsible-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+.component-title span {
+  float: left;
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.collapsible .static {
+  background-color: #323232;
+  border-bottom: 1px solid #262626;
+  border-top: 1px solid #262626;
+  color: #fff;
+  height: 16px;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.collapsible .menu {
+  text-align: right;
+}
+
+.collapsible .menu::after {
+  color: #bbb;
+  content: '\2807';
+  font-size: 12px;
+  padding: 5px;
+  text-align: right;
+}
+
+.collapsible .static .collapse-button {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  float: left;
+  height: 0;
+  margin-right: 10px;
+  margin-top: 2px;
+  width: 0;
+}
+
+.collapsible.collapsed .static .collapse-button {
+  border-left-color: #bbb;
+}
+
+.collapsible:not(.collapsed) .static .collapse-button {
+  border-top-color: #bbb;
+}
+
+.collapsible .content {
+  background-color: #2b2b2b;
+  padding: 10px;
+}
+
+.components .row {
+  margin-bottom: 10px;
+  min-height: 20px;
+}
+
+.components * {
+  vertical-align: middle;
+}
+
+.components .row .text {
+  cursor: default;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  width: 120px;
+}
+
+.components .row .map_value {
+  margin: 0 0 0 5px;
+  width: 68px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.uploader-normal-button .hidden {
+  display: none;
+}
+
+.texture canvas + input {
+  margin-left: 5px;
+}
+
+.texture .fa {
+  padding-right: 5px;
+}
+
+.texture .fa-external-link {
+  font-size: 14px;
+  padding-top: 2px;
+}
+
+.scenegraph-bottom {
+  background-color: #323232;
+  border-top: 1px solid #111;
+  bottom: 10;
+  height: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+a.button {
+  color: #bcbcbc;
+  font-size: 16px;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+a.button:hover {
+  color: #1faaf2;
+}
+
+.scenegraph-bottom a {
+  float: right;
+  margin: 10px;
+}
+
+.modal {
+  animation: animateopacity 0.2s ease-out;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.6);
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.modal h3 {
+  font-size: 18px;
+  font-weight: 100;
+  margin: 0.6em 0;
+}
+
+#texture-modal .modal-content {
+  height: calc(100% - 50px);
+  width: calc(100% - 50px);
+}
+
+.modal-content {
+  animation: animatetop 0.2s ease-out;
+  animation-duration: 0.2s;
+  animation-name: animatetop;
+  background-color: #232323;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+  margin: auto;
+  overflow: hidden;
+  padding: 0;
+}
+
+@keyframes animateopacity {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #08f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.modal-header {
+  color: white;
+  padding: 2px 16px;
+}
+
+.modal-body {
+  overflow: auto;
+  padding: 16px;
+}
+
+.modal-footer {
+  color: white;
+  padding: 2px 16px;
+}
+
+/* Gallery */
+
+.gallery {
+  background: #232323;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 15px auto 0;
+  max-height: 50vh;
+  overflow: auto;
+  padding: 15px 3px 3px;
+}
+
+.newimage .gallery {
+  padding: 16px;
+}
+
+.gallery li {
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  margin: 8px;
+  overflow: hidden;
+  width: 155px;
+}
+
+.gallery li.selected,
+.gallery li:hover {
+  box-shadow: 0 0 0 2px #1eaaf1;
+}
+
+.gallery li .detail {
+  background-color: #323232;
+  margin: 0;
+  min-height: 60px;
+  padding: 3px 10px;
+}
+
+.gallery li .button.fa-external-link {
+  margin-left: 136px;
+  margin-top: 5px;
+  position: fixed;
+}
+
+.preview {
+  padding: 10px;
+  width: 150px;
+}
+
+.preview input {
+  display: block;
+  margin: 8px 0;
+  width: 144px;
+}
+
+.preview button {
+  width: 155px;
+}
+
+.preview .detail .title {
+  color: #fff;
+  display: inline-block;
+  max-width: 155px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gallery li.selected .detail,
+.gallery li:hover .detail {
+  background-color: #444;
+}
+
+.gallery li .detail span {
+  color: #777;
+  display: block;
+  margin-top: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 140px;
+}
+
+.gallery li.selected .detail span,
+.gallery li:hover .detail span {
+  color: #888;
+}
+
+.gallery li .detail span.title {
+  color: #fff !important;
+}
+
+.modal button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 0 10px 0 0;
+  padding: 5px 10px;
+}
+
+.modal button:focus {
+  outline: none;
+}
+
+.modal button {
+  background-color: #1eaaf1;
+  border: none;
+  color: #fff;
+}
+
+.modal button:hover,
+.modal button.hover {
+  background-color: #346392;
+  text-shadow: -1px 1px #27496d;
+}
+
+.modal button:active,
+.modal button.active {
+  background-color: #27496d;
+  text-shadow: -1px 1px #193047;
+}
+
+.modal button:disabled {
+  background-color: #888;
+  cursor: none;
+}
+
+.newimage {
+  background-color: #323232;
+  color: #bcbcbc;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 13px;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  margin-top: 10px;
+  overflow: auto;
+  padding: 10px;
+}
+
+.newimage input {
+  color: #1eaaf1;
+  padding: 3px 5px;
+}
+
+.hide {
+  display: none;
+}
+
+span.value {
+  color: #fff;
+  display: inline-block;
+}
+
+span.mixinlist {
+  color: #888 !important;
+  display: inline-block;
+}
+
+span.mixinlist ul {
+  background-color: #222;
+  list-style-type: none;
+  margin: 5px 0 0;
+  padding: 5px;
+}
+
+span.mixinlist ul li {
+  font-size: 11px;
+  margin-bottom: 3px;
+}
+
+span.mixinlist ul li:last-child {
+  margin-bottom: 0;
+}
+
+span.mixin {
+  display: inline-block;
+  width: 100px;
+}
+
+.mixinlist {
+  margin-left: 120px;
+}
+
+span.subcomponent {
+  color: #999;
+  float: none !important;
+  margin-left: 10px;
+  vertical-align: top !important;
+}
+
+.collapsible .static {
+  cursor: pointer;
+}
+
+.a-canvas.state-dragging {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.tagName {
+  font-weight: 500;
+}
+
+.sidebar-title {
+  background-color: #444;
+  color: #aaa;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding: 6px 10px;
+  position: relative;
+  text-align: center;
+}
+
+.toolbar {
+  background-color: #262626;
+  color: #333;
+  height: 32px;
+  position: relative;
+}
+
+.toolbar * {
+  margin-left: 0;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+.toolbar a.button {
+  margin: 0 6px 0 0;
+}
+
+.toolbar .active {
+  background-color: #1faaf2;
+  color: #fff;
+}
+
+.toolbar .active:hover {
+  color: #fff !important;
+}
+
+.local-transform {
+  padding-left: 10px;
+}
+
+.local-transform label {
+  color: #aaa;
+  padding-left: 5px;
+}
+
+.local-transform a.button {
+  padding-top: 0;
+}
+
+.outliner {
+  background: #2b2b2b;
+  color: #868686;
+  cursor: default;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  font-size: 12px;
+  height: calc(100% - 98px);
+  outline: none;
+  overflow-y: auto;
+  padding: 0;
+  width: 230px;
+}
+
+.outliner .option {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  padding: 4px;
+  white-space: nowrap;
+}
+
+.outliner .option.active {
+  background-color: #1faaf2;
+  color: #fff;
+}
+
+.outliner .option .component:hover {
+  color: #1faaf2;
+}
+
+.outliner .option.active .component:hover {
+  color: #1888c1;
+}
+
+.outliner .option .icons {
+  display: none;
+  margin: 0 3px 0 10px;
+}
+
+.outliner .option .icons .button {
+  color: #fff;
+  font-size: 12px;
+}
+
+.outliner .option.active .icons {
+  display: inline;
+}
+
+.outliner .fa {
+  color: #aaa;
+}
+
+.outliner .active .fa {
+  color: #fff;
+}
+
+a.flat-button {
+  background-color: #262626;
+  color: #bcbcbc;
+  font-size: 11px;
+  margin-left: 10px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+a.flat-button:hover {
+  color: #1faaf2;
+}
+
+.component-title {
+  -ms-flex-align: center;
+      align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+a.help-link {
+  opacity: 0.4;
+}
+
+a.help-link:hover {
+  opacity: 1;
+}
+
+#right-panels {
+  -ms-flex-align: stretch;
+      align-items: stretch;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+#aframe-inspector-panels {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+.aframe-inspector-opened a-scene .a-canvas {
+  background-color: #191919;
+  z-index: 9998;
+}
+
+.uploadcare-widget-button-open {
+  background-color: #1eaaf1;
+  border-radius: 0;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 10px 15px;
+}
+
+.uploadcare-widget-button-open:hover {
+  background-color: #346392;
+}
+
+.new_asset_options {
+  margin: 10px;
+}
+
+.new_asset_options > ul {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.new_asset_options > ul > li {
+  padding: 10px 0;
+}
+
+.new_asset_options .imageUrl {
+  margin-left: 5px;
+  width: 350px;
+}
+
+span.entity-name {
+  color: #fff;
+  font-family: Consolas, Andale Mono, Monaco, Courier New, monospace;
+  font-size: 16px;
+}
+
+.add-component {
+  width: 200px;
+}
+
+.Select-control {
+  background-color: #222 !important;
+  border: none;
+  border-radius: 0;
+  color: #1faaf2;
+}
+
+.Select-menu-outer {
+  border: none;
+}
+
+.Select-menu-outer .is-focused {
+  background-color: #1faaf2 !important;
+  color: #fff;
+}
+
+.Select-option {
+  background-color: #222 !important;
+}
+
+.select-widget {
+  display: inline-block;
+  width: 157px;
+}
+
+.Select-placeholder,
+.Select--single > .Select-control .Select-value {
+  color: #1faaf2 !important;
+}
+
+.Select-value-label {
+  color: #1faaf2 !important;
+}
+
+.row .Select-control {
+  font-size: 11px;
+  height: 24px;
+}
+
+.row .Select-placeholder,
+.row .Select--single > .Select-control .Select-value {
+  line-height: 19px;
+}
+
+.row .Select-input {
+  height: 22px;
+}
+
+.row input[type=text],
+.row input[type=number],
+.row input.string,
+.row input.number {
+  background: #222;
+  border: 1px solid transparent;
+  color: #1faaf2;
+  min-height: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.row input.string {
+  box-sizing: border-box;
+  width: 165px;
+}
+
+.help-lists {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.help-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 10px;
+  width: 350px;
+}
+
+.help-list li {
+  margin-right: 40px;
+}
+
+.help-key-unit {
+  line-height: 1.8;
+  margin-right: 2em;
+  padding: 5px 0;
+}
+
+.help-key {
+  bottom: 2px;
+  margin-right: 4px;
+  min-width: 60px;
+  position: relative;
+}
+
+.help-key span {
+  background-color: #2e2e2e;
+  background-repeat: repeat-x;
+  border: 1px solid #666;
+  border-radius: 3px;
+  box-shadow: 0 0 5px #000;
+  color: #999;
+  display: inline-block;
+  font-size: 12px;
+  padding: 0 8px;
+  text-align: center;
+}
+
+.help-key-def {
+  color: #bbb;
+  display: inline-block;
+  margin-left: 1em;
+}
+
+.add-component {
+  text-align: left;
+}
+
+.add-component .option {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+.add-component .option span {
+  color: #1faaf2;
+}
+
+.Select-menu-outer .is-focused span {
+  color: #fff;
+}
+
+.add-component-container {
+  -ms-flex-align: center;
+      align-items: center;
+  background-color: #2b2b2b;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  padding: 10px;
+}
+
+.aregistry-button {
+  font-size: 12px;
+  margin-left: 10px;
+  padding: 8px;
+}
+
+.aregistry-button:hover {
+  background-color: #1faaf2;
+}
+
+.aregistry-button img {
+  height: 20px;
+  width: 20px;
+}
+
+.components .row .color_value {
+  margin: 0 0 0 5px;
+  width: 68px;
+}
+
+.assets.search {
+  margin-top: 10px;
+  width: 200px;
+}
+
+.assets.search .fa-search {
+  top: 7px;
+}
+
+.gallery a.fa.texture-link {
+  box-shadow: 0 0 14px -1px rgba(0, 0, 0, 0.75);
+  position: fixed;
+}
+
+.outliner .id {
+  color: #ccc;
+}
+
+.outliner .option.active .id {
+  color: #fff;
+}
+
+.outliner .collasespace {
+  color: #eee;
+  display: inline-block;
+  text-align: center;
+  width: 14px;
+}
+
+.outliner .fa-eye {
+  color: #bbb;
+}
+
+.outliner .option {
+  white-space: pre;
+}
+
+.option span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.outliner .option.novisible span,
+.outliner .option.novisible .fa,
+.outliner .option.novisible .collasespace,
+.outliner .option.novisible .id {
+  color: #575757;
+}
+
+.outliner .option .icons a.button {
+  color: #fff;
+}
+
+.toggle-sidebar {
+  -ms-flex-align: center;
+      align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  z-index: 9998;
+}
+
+.toggle-sidebar.left {
+  left: 0;
+}
+
+.toggle-sidebar.right {
+  right: 0;
+}
+
+.toggle-sidebar a {
+  background-color: #262626;
+  color: #bcbcbc;
+  padding: 5px;
+  z-index: 9998;
+}
+
+.toggle-sidebar a:hover {
+  background-color: #1faaf2;
+  color: #fff;
+}
+
+/* Dropdown menu */
+
+.dropbtn {
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-content {
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  display: none;
+  left: 8px;
+  min-width: 38px;
+  position: absolute;
+  z-index: 999;
+}
+
+.dropdown-content a {
+  background-color: #232323;
+  color: #7d7d7d;
+  display: block;
+  padding: 10px 14px;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #4ecbff;
+  color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  color: #1faaf2;
+}
+
+.savedRecordings {
+  display: inline-block;
+  margin-top: 10px;
+  vertical-align: middle;
+  width: 80%;
+}
+</style><link href="./Example Scene_files/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,print" data-aframe-inspector="style"><link href="./Example Scene_files/css" type="text/css" rel="stylesheet" media="screen,print" data-aframe-inspector="style"><script src="./Example Scene_files/webfont.js" charset="utf-8" data-aframe-inspector="style"></script><link rel="stylesheet" href="./Example Scene_files/css(1)" media="all"><script data-aframe-inspector="webfont">WebFont.load({google: {families: ["Roboto", "Roboto Mono"]}});</script><script src="./Example Scene_files/uploadcare.full.min.js" charset="utf-8" data-aframe-inspector="style"></script></head>
+<body class="a-body" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+<a-scene debug="true" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="" class="fullscreen">
+<a-assets>
+<a-mixin id="blue" material="color: #4CC3D9"></a-mixin>
+<a-mixin id="blueBox" geometry="primitive: box; depth: 2; height: 5; width: 1" material="color: #4CC3D9"></a-mixin>
+<a-mixin id="box" geometry="primitive: box; depth: 1; height: 1; width: 1"></a-mixin>
+<a-mixin id="cylinder" geometry="primitive: cylinder; height: 0.3; radius: 0.75; segmentsRadial: 6"></a-mixin>
+<a-mixin id="green" material="color: #7BC8A4"></a-mixin>
+<a-mixin id="orange" material="color: #F16745"></a-mixin>
+<a-mixin id="purple" material="color: #93648D"></a-mixin>
+<a-mixin id="short" scale="1 0.5 1"></a-mixin>
+<a-mixin id="yellow" material="color: #FFC65D"></a-mixin>
+<img id="crateImg" src="./Example Scene_files/crate.gif" crossorigin="true">
+<img id="floorImg" src="./Example Scene_files/grasslight-big.jpg" crossorigin="true">
+</a-assets>
+<a-entity id="environment" environment="preset:forest;fog:false;seed:8;skyType:gradient;skyColor:#24b59f;horizonColor:#eff9b7;lighting:distant;lightPosition:-1.2 0.88 -0.55;flatShading:false;playArea:1;ground:noise;groundYScale:4.18;groundTexture:squares;groundColor:#937a24;groundColor2:#987d2e;dressing:trees;dressingAmount:500;dressingColor:#888b1d;dressingScale:1;dressingVariance:10 10 10;dressingUniformScale:true;dressingOnPlayArea:0;grid:none;gridColor:#c5a543;shadow:false"><a-entity position="" light="type:hemisphere;color:#91dacf;intensity:0.6;groundColor:#937a24"></a-entity><a-entity position="-1.2 0.88 -0.55" light="intensity:0.6;castShadow:false;shadowCameraLeft:-10;shadowCameraBottom:-10;shadowCameraRight:10;shadowCameraTop:10"></a-entity><a-entity rotation="" visible="true" scale="4.18" shadow="cast:false;receive:false"></a-entity><a-entity visible="true"></a-entity><a-sky radius="200" geometry="" theta-length="110" material="shader:gradientshader;topColor:#24b59f;bottomColor:#eff9b7" scale=""></a-sky></a-entity>
+
+<a-entity id="blueBox" mixin="blueBox" position="0 8 0" geometry="" material=""></a-entity>
+<a-entity id="shortOrangeBox" mixin="short orange box" position="-5 2 0" scale="" material="" geometry=""></a-entity>
+<a-entity id="shortYellowBox" mixin="short yellow box" position="5 2 0" scale="" material="" geometry=""></a-entity>
+<a-entity id="redBox" geometry="primitive: box" material="color:#f00" position="-4 1 0" rotation="0 201.2024999999883 0">
+<a-animation attribute="rotation" to="0 360 0" repeat="indefinite" easing="linear" dur="9600"></a-animation>
+</a-entity>
+<a-entity id="yellowSphere" geometry="primitive: sphere" material="color:#ff0; metalness:0.0; roughness:1.0" position="-2 2 -2"></a-entity>
+<a-box src="https://aframe.io/sample-assets/assets/images/bricks/brick_bump.jpg" position="-5 5 -2" width="1" color="#F16745" material="" geometry=""></a-box>
+<a-box id="box" position="0 2 0" height="2" color="#FFC65D" material="" geometry=""></a-box>
+
+<a-entity class="boxClass" geometry="primitive: box" material="src: #crateImg" position="3 4 0"></a-entity>
+<a-entity class="boxClass" geometry="primitive: box" material="color: #0f0" position="4 2 4"></a-entity>
+
+<a-entity id="floor" geometry="primitive: box; height: .2; depth: 24; width: 24" material="src: #floorImg; color: #fafafa; metalness: .1; repeat: 50 20; roughness: 1"></a-entity>
+
+<a-entity id="pointLight" light="type: point; intensity: 0.25" position="0 3 3"></a-entity>
+
+<a-entity id="cameraWrapper" position="0 1.6 8">
+<a-entity id="camera" camera="active:true" look-controls="" wasd-controls="" position="" rotation="" data-aframe-inspector-original-camera="">
+
+<a-entity id="cursor" position="0 0 -2" geometry="primitive: ring; radiusOuter: 0.016; radiusInner: 0.01" material="color: #ff9; shader: flat; transparent: true; opacity: 0.5" scale="2 2 2" raycaster="">
+</a-entity>
+</a-entity>
+</a-entity>
+<a-entity id="leftHand" laser-controls="hand: left" daydream-controls="hand:left" gearvr-controls="hand:left" oculus-go-controls="hand:left" oculus-touch-controls="hand:left" vive-controls="hand:left" windows-motion-controls="hand:left"></a-entity>
+<a-entity id="rightHand" laser-controls="hand: right" daydream-controls="hand:right" gearvr-controls="hand:right" oculus-go-controls="hand:right" oculus-touch-controls="hand:right" vive-controls="hand:right" windows-motion-controls="hand:right"></a-entity>
+<canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="1920" height="569"></canvas><div class="a-enter-vr" aframe-injected="" style="display: block;"><button class="a-enter-vr-button" title="Enter VR mode with a headset or fullscreen mode on a desktop. Visit https://webvr.rocks or https://webvr.info for more information." aframe-injected=""></button></div><div class="a-orientation-modal a-hidden" aframe-injected=""><button aframe-injected="">Exit VR</button></div><a-entity camera="far:10000;fov:50;near:0.05;active:false" data-aframe-inspector="camera"></a-entity></a-scene>
+<script src="./Example Scene_files/aframe-inspector.js"></script><div id="aframe-inspector" data-aframe-inspector="app"><div data-reactroot=""><a class="toggle-edit">Inspect Scene</a><div id="aframe-inspector-panels" class="hidden"><div id="texture-modal" class="modal hide"><div class="modal-content"><div class="modal-header"><span class="close">×</span><h3>Textures</h3></div><div class="modal-body"><button>LOAD TEXTURE</button><div class="hide"><div class="newimage"><div class="new_asset_options"><span>Load a new texture from one of these sources:</span><ul><li><span>From URL (and press Enter):</span><!-- react-text: 18 --> <!-- /react-text --><input type="text" class="imageUrl" value=""></li><li><div class="uploader-normal-button"><!-- react-text: 22 -->From a file: <!-- /react-text --><input type="hidden" role="uploadcare-uploader" value=""><div class="uploadcare-widget uploadcare-widget-status-ready" data-status="ready">
+  <div class="uploadcare-widget-dragndrop-area">
+    Drop a file here
+  </div><div class="uploadcare-widget-status uploadcare-widget-circle uploadcare-widget-circle--canvas" style=""><canvas width="46" height="46"></canvas></div><div class="uploadcare-widget-text">
+</div><div tabindex="0" role="button" class="uploadcare-widget-button uploadcare-widget-button-open">Choose a file</div><div tabindex="0" role="button" class="uploadcare-widget-button uploadcare-widget-button-cancel">Cancel</div><div tabindex="0" role="button" class="uploadcare-widget-button uploadcare-widget-button-remove">Remove</div></div></div></li><li><span>From assets registry: </span><div class="assets search"><input placeholder="Filter..." value=""><span class="fa fa-search"></span></div><ul class="gallery"><li><img width="155px" height="155px" src="./Example Scene_files/earth_lights_2048.png"><div class="detail"><span class="title">earth_lights_2048</span><span>earth_lights_2048.png</span><span><!-- react-text: 418 -->2048<!-- /react-text --><!-- react-text: 419 --> x <!-- /react-text --><!-- react-text: 420 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/crate.gif"><div class="detail"><span class="title">crate</span><span>crate.gif</span><span><!-- react-text: 427 -->256<!-- /react-text --><!-- react-text: 428 --> x <!-- /react-text --><!-- react-text: 429 -->256<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/earth_atmos_4096.jpg"><div class="detail"><span class="title">earth_atmos_4096</span><span>earth_atmos_4096.jpg</span><span><!-- react-text: 436 -->2048<!-- /react-text --><!-- react-text: 437 --> x <!-- /react-text --><!-- react-text: 438 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/brick_diffuse.jpg"><div class="detail"><span class="title">brick_diffuse</span><span>brick_diffuse.jpg</span><span><!-- react-text: 445 -->1024<!-- /react-text --><!-- react-text: 446 --> x <!-- /react-text --><!-- react-text: 447 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/grasslight-big-nm.jpg"><div class="detail"><span class="title">grasslightbig-nm</span><span>grasslight-big-nm.jpg</span><span><!-- react-text: 454 -->2048<!-- /react-text --><!-- react-text: 455 --> x <!-- /react-text --><!-- react-text: 456 -->2048<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/envmap.png"><div class="detail"><span class="title">envmap</span><span>envmap.png</span><span><!-- react-text: 463 -->256<!-- /react-text --><!-- react-text: 464 --> x <!-- /react-text --><!-- react-text: 465 -->256<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/water.jpg"><div class="detail"><span class="title">water</span><span>water.jpg</span><span><!-- react-text: 472 -->512<!-- /react-text --><!-- react-text: 473 --> x <!-- /react-text --><!-- react-text: 474 -->512<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/perlin-512.png"><div class="detail"><span class="title">perlin512</span><span>perlin-512.png</span><span><!-- react-text: 481 -->512<!-- /react-text --><!-- react-text: 482 --> x <!-- /react-text --><!-- react-text: 483 -->512<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/earth_clouds_2048.png"><div class="detail"><span class="title">earth_clouds_2048</span><span>earth_clouds_2048.png</span><span><!-- react-text: 490 -->2048<!-- /react-text --><!-- react-text: 491 --> x <!-- /react-text --><!-- react-text: 492 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/brick_roughness.jpg"><div class="detail"><span class="title">brick_roughness</span><span>brick_roughness.jpg</span><span><!-- react-text: 499 -->1024<!-- /react-text --><!-- react-text: 500 --> x <!-- /react-text --><!-- react-text: 501 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/dirt.png"><div class="detail"><span class="title">dirt</span><span>dirt.png</span><span><!-- react-text: 508 -->16<!-- /react-text --><!-- react-text: 509 --> x <!-- /react-text --><!-- react-text: 510 -->16<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/lensflare2.png"><div class="detail"><span class="title">lensflare2</span><span>lensflare2.png</span><span><!-- react-text: 517 -->512<!-- /react-text --><!-- react-text: 518 --> x <!-- /react-text --><!-- react-text: 519 -->512<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/waternormals.jpg"><div class="detail"><span class="title">waternormals</span><span>waternormals.jpg</span><span><!-- react-text: 526 -->1024<!-- /react-text --><!-- react-text: 527 --> x <!-- /react-text --><!-- react-text: 528 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/grass_dirt.png"><div class="detail"><span class="title">grass_dirt</span><span>grass_dirt.png</span><span><!-- react-text: 535 -->16<!-- /react-text --><!-- react-text: 536 --> x <!-- /react-text --><!-- react-text: 537 -->16<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/metal.jpg"><div class="detail"><span class="title">metal</span><span>metal.jpg</span><span><!-- react-text: 544 -->512<!-- /react-text --><!-- react-text: 545 --> x <!-- /react-text --><!-- react-text: 546 -->512<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/backgrounddetailed6.jpg"><div class="detail"><span class="title">backgrounddetailed6</span><span>backgrounddetailed6.jpg</span><span><!-- react-text: 553 -->512<!-- /react-text --><!-- react-text: 554 --> x <!-- /react-text --><!-- react-text: 555 -->512<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/UV_Grid_Sm.jpg"><div class="detail"><span class="title">uv_grid_sm</span><span>UV_Grid_Sm.jpg</span><span><!-- react-text: 562 -->1024<!-- /react-text --><!-- react-text: 563 --> x <!-- /react-text --><!-- react-text: 564 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/disturb.jpg"><div class="detail"><span class="title">disturb</span><span>disturb.jpg</span><span><!-- react-text: 571 -->512<!-- /react-text --><!-- react-text: 572 --> x <!-- /react-text --><!-- react-text: 573 -->512<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/lensflare3.png"><div class="detail"><span class="title">lensflare3</span><span>lensflare3.png</span><span><!-- react-text: 580 -->128<!-- /react-text --><!-- react-text: 581 --> x <!-- /react-text --><!-- react-text: 582 -->128<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/atlas.png"><div class="detail"><span class="title">atlas</span><span>atlas.png</span><span><!-- react-text: 589 -->16<!-- /react-text --><!-- react-text: 590 --> x <!-- /react-text --><!-- react-text: 591 -->32<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/2294472375_24a3b8ef46_o.jpg"><div class="detail"><span class="title">_24a3b8ef46_o</span><span>2294472375_24a3b8ef46_o.jpg</span><span><!-- react-text: 598 -->4096<!-- /react-text --><!-- react-text: 599 --> x <!-- /react-text --><!-- react-text: 600 -->2048<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/lensflare0.png"><div class="detail"><span class="title">lensflare0</span><span>lensflare0.png</span><span><!-- react-text: 607 -->128<!-- /react-text --><!-- react-text: 608 --> x <!-- /react-text --><!-- react-text: 609 -->128<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/earth_atmos_2048.jpg"><div class="detail"><span class="title">earth_atmos_2048</span><span>earth_atmos_2048.jpg</span><span><!-- react-text: 616 -->2048<!-- /react-text --><!-- react-text: 617 --> x <!-- /react-text --><!-- react-text: 618 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/decal-normal.jpg"><div class="detail"><span class="title">decalnormal</span><span>decal-normal.jpg</span><span><!-- react-text: 625 -->512<!-- /react-text --><!-- react-text: 626 --> x <!-- /react-text --><!-- react-text: 627 -->512<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/earth_specular_2048.jpg"><div class="detail"><span class="title">earth_specular_2048</span><span>earth_specular_2048.jpg</span><span><!-- react-text: 634 -->2048<!-- /react-text --><!-- react-text: 635 --> x <!-- /react-text --><!-- react-text: 636 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/hardwood2_roughness.jpg"><div class="detail"><span class="title">hardwood2_roughness</span><span>hardwood2_roughness.jpg</span><span><!-- react-text: 643 -->2048<!-- /react-text --><!-- react-text: 644 --> x <!-- /react-text --><!-- react-text: 645 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/earth_clouds_1024.png"><div class="detail"><span class="title">earth_clouds_1024</span><span>earth_clouds_1024.png</span><span><!-- react-text: 652 -->1024<!-- /react-text --><!-- react-text: 653 --> x <!-- /react-text --><!-- react-text: 654 -->512<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/hardwood2_bump.jpg"><div class="detail"><span class="title">hardwood2_bump</span><span>hardwood2_bump.jpg</span><span><!-- react-text: 661 -->2048<!-- /react-text --><!-- react-text: 662 --> x <!-- /react-text --><!-- react-text: 663 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/brick_bump.jpg"><div class="detail"><span class="title">brick_bump</span><span>brick_bump.jpg</span><span><!-- react-text: 670 -->1024<!-- /react-text --><!-- react-text: 671 --> x <!-- /react-text --><!-- react-text: 672 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/earth_normal_2048.jpg"><div class="detail"><span class="title">earth_normal_2048</span><span>earth_normal_2048.jpg</span><span><!-- react-text: 679 -->2048<!-- /react-text --><!-- react-text: 680 --> x <!-- /react-text --><!-- react-text: 681 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/lensflare1.png"><div class="detail"><span class="title">lensflare1</span><span>lensflare1.png</span><span><!-- react-text: 688 -->128<!-- /react-text --><!-- react-text: 689 --> x <!-- /react-text --><!-- react-text: 690 -->128<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/grass.png"><div class="detail"><span class="title">grass</span><span>grass.png</span><span><!-- react-text: 697 -->16<!-- /react-text --><!-- react-text: 698 --> x <!-- /react-text --><!-- react-text: 699 -->16<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/UV_Grid_Lrg.jpg"><div class="detail"><span class="title">uv_grid_lrg</span><span>UV_Grid_Lrg.jpg</span><span><!-- react-text: 706 -->1024<!-- /react-text --><!-- react-text: 707 --> x <!-- /react-text --><!-- react-text: 708 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/decal-diffuse.png"><div class="detail"><span class="title">decaldiffuse</span><span>decal-diffuse.png</span><span><!-- react-text: 715 -->512<!-- /react-text --><!-- react-text: 716 --> x <!-- /react-text --><!-- react-text: 717 -->512<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/hardwood2_diffuse.jpg"><div class="detail"><span class="title">hardwood2_diffuse</span><span>hardwood2_diffuse.jpg</span><span><!-- react-text: 724 -->2048<!-- /react-text --><!-- react-text: 725 --> x <!-- /react-text --><!-- react-text: 726 -->1024<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/hexangle.png"><div class="detail"><span class="title">hexangle</span><span>hexangle.png</span><span><!-- react-text: 733 -->128<!-- /react-text --><!-- react-text: 734 --> x <!-- /react-text --><!-- react-text: 735 -->128<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/moon_1024.jpg"><div class="detail"><span class="title">moon_1024</span><span>moon_1024.jpg</span><span><!-- react-text: 742 -->1024<!-- /react-text --><!-- react-text: 743 --> x <!-- /react-text --><!-- react-text: 744 -->512<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/grasslight-big.jpg"><div class="detail"><span class="title">grasslightbig</span><span>grasslight-big.jpg</span><span><!-- react-text: 751 -->2048<!-- /react-text --><!-- react-text: 752 --> x <!-- /react-text --><!-- react-text: 753 -->2048<!-- /react-text --></span></div></li><li><img width="155px" height="155px" src="./Example Scene_files/758px-Canestra_di_frutta_(Caravaggio).jpg"><div class="detail"><span class="title">pxcanestra_di_frutta_(caravaggio)</span><span>758px-Canestra_di_frutta_(Caravaggio).jpg</span><span><!-- react-text: 760 -->758<!-- /react-text --><!-- react-text: 761 --> x <!-- /react-text --><!-- react-text: 762 -->600<!-- /react-text --></span></div></li></ul></li></ul></div><div class="preview"><!-- react-text: 31 -->Name: <!-- /react-text --><input type="text" class="" value=""><img width="155px" height="155px" src="https://aframe.io/aframe-inspector/example/"><span></span><br><button disabled="">LOAD THIS TEXTURE</button></div></div></div><div class=""><ul class="gallery"><li class=""><a href="./Example Scene_files/crate.gif" title="Open image in a new tab" class="button fa fa-external-link" target="_blank"></a><img width="155px" height="155px" src="./Example Scene_files/crate.gif"><div class="detail"><span class="title">crateImg</span><span>crate.gif</span><span><!-- react-text: 399 -->256<!-- /react-text --><!-- react-text: 400 --> x <!-- /react-text --><!-- react-text: 401 -->256<!-- /react-text --></span></div></li><li class=""><a href="./Example Scene_files/grasslight-big.jpg" title="Open image in a new tab" class="button fa fa-external-link" target="_blank"></a><img width="155px" height="155px" src="./Example Scene_files/grasslight-big.jpg"><div class="detail"><span class="title">floorImg</span><span>grasslight-big.jpg</span><span><!-- react-text: 409 -->2048<!-- /react-text --><!-- react-text: 410 --> x <!-- /react-text --><!-- react-text: 411 -->2048<!-- /react-text --></span></div></li></ul></div></div></div></div><div id="left-sidebar" class="scenegraph"><div class="scenegraph-toolbar"><div id="scenegraphToolbar"><div class="scenegraph-actions"><a class="button fa fa-video-camera" title="Open motion capture development tools"></a><a class="button fa fa-clipboard" title="Copy HTML to clipboard" data-action="copy-scene-to-clipboard"></a><a class="button fa fa-download" title="Export to HTML"></a><a class="button fa fa-plus" title="Add a new entity"></a><div class="dropdown"><a class="dropbtn button fa fa-download" title="Export"></a><div class="dropdown-content"><a class="" title="Export to HTML">HTML</a><a class="" title="Export to GLTF">GLTF</a></div></div></div></div><div class="search"><input id="filter" placeholder="Search..." value=""><span class="fa fa-search"></span></div></div><div class="outliner" tabindex="0"><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 155 --> <!-- /react-text --><!-- react-text: 156 --><!-- /react-text --><!-- react-text: 157 --> <!-- /react-text --><span class="collasespace fa fa-caret-down"></span><!-- react-text: 159 -->&lt;<!-- /react-text --><!-- react-text: 160 -->a-scene<!-- /react-text --><span class="name"></span><span></span><!-- react-text: 163 -->&gt;<!-- /react-text --></span><span class="icons"><!-- react-text: 165 --><!-- /react-text --><!-- react-text: 166 --><!-- /react-text --></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 170 --> <!-- /react-text --><!-- react-text: 171 -->    <!-- /react-text --><!-- react-text: 172 --> <!-- /react-text --><span class="collasespace fa fa-caret-right"></span><!-- react-text: 174 -->&lt;<!-- /react-text --><!-- react-text: 175 -->a-entity<!-- /react-text --><span class="name"> environment</span><span></span><!-- react-text: 178 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 185 --> <!-- /react-text --><!-- react-text: 186 -->    <!-- /react-text --><!-- react-text: 187 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 189 -->&lt;<!-- /react-text --><!-- react-text: 190 -->a-entity<!-- /react-text --><span class="name"> blueBox</span><span> <i class="component fa fa-cube" title="geometry
+ - buffer: true
+ - depth: 2
+ - height: 5
+ - primitive: box
+ - segmentsDepth: 1
+ - segmentsHeight: 1
+ - segmentsWidth: 1
+ - skipCache: false
+ - width: 1"></i> <i class="component fa fa-picture-o" title="material
+ - alphaTest: 0
+ - ambientOcclusionMap: 
+ - ambientOcclusionMapIntensity: 1
+ - ambientOcclusionTextureOffset: [object Object]
+ - ambientOcclusionTextureRepeat: [object Object]
+ - blending: normal
+ - color: #4CC3D9
+ - depthTest: true
+ - depthWrite: true
+ - displacementBias: 0.5
+ - displacementMap: 
+ - displacementScale: 1
+ - displacementTextureOffset: [object Object]
+ - displacementTextureRepeat: [object Object]
+ - emissive: #000
+ - emissiveIntensity: 1
+ - envMap: 
+ - flatShading: false
+ - fog: true
+ - height: 256
+ - metalness: 0
+ - metalnessMap: 
+ - metalnessTextureOffset: [object Object]
+ - metalnessTextureRepeat: [object Object]
+ - normalMap: 
+ - normalScale: [object Object]
+ - normalTextureOffset: [object Object]
+ - normalTextureRepeat: [object Object]
+ - npot: false
+ - offset: [object Object]
+ - opacity: 1
+ - repeat: [object Object]
+ - roughness: 0.5
+ - roughnessMap: 
+ - roughnessTextureOffset: [object Object]
+ - roughnessTextureRepeat: [object Object]
+ - shader: standard
+ - side: front
+ - sphericalEnvMap: 
+ - src: 
+ - transparent: false
+ - vertexColors: none
+ - visible: true
+ - width: 512
+ - wireframe: false
+ - wireframeLinewidth: 2"></i></span><!-- react-text: 193 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 200 --> <!-- /react-text --><!-- react-text: 201 -->    <!-- /react-text --><!-- react-text: 202 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 204 -->&lt;<!-- /react-text --><!-- react-text: 205 -->a-entity<!-- /react-text --><span class="name"> shortOrangeBox</span><span> <i class="component fa fa-cube" title="geometry
+ - buffer: true
+ - depth: 1
+ - height: 1
+ - primitive: box
+ - segmentsDepth: 1
+ - segmentsHeight: 1
+ - segmentsWidth: 1
+ - skipCache: false
+ - width: 1"></i> <i class="component fa fa-picture-o" title="material
+ - alphaTest: 0
+ - ambientOcclusionMap: 
+ - ambientOcclusionMapIntensity: 1
+ - ambientOcclusionTextureOffset: [object Object]
+ - ambientOcclusionTextureRepeat: [object Object]
+ - blending: normal
+ - color: #F16745
+ - depthTest: true
+ - depthWrite: true
+ - displacementBias: 0.5
+ - displacementMap: 
+ - displacementScale: 1
+ - displacementTextureOffset: [object Object]
+ - displacementTextureRepeat: [object Object]
+ - emissive: #000
+ - emissiveIntensity: 1
+ - envMap: 
+ - flatShading: false
+ - fog: true
+ - height: 256
+ - metalness: 0
+ - metalnessMap: 
+ - metalnessTextureOffset: [object Object]
+ - metalnessTextureRepeat: [object Object]
+ - normalMap: 
+ - normalScale: [object Object]
+ - normalTextureOffset: [object Object]
+ - normalTextureRepeat: [object Object]
+ - npot: false
+ - offset: [object Object]
+ - opacity: 1
+ - repeat: [object Object]
+ - roughness: 0.5
+ - roughnessMap: 
+ - roughnessTextureOffset: [object Object]
+ - roughnessTextureRepeat: [object Object]
+ - shader: standard
+ - side: front
+ - sphericalEnvMap: 
+ - src: 
+ - transparent: false
+ - vertexColors: none
+ - visible: true
+ - width: 512
+ - wireframe: false
+ - wireframeLinewidth: 2"></i></span><!-- react-text: 208 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 215 --> <!-- /react-text --><!-- react-text: 216 -->    <!-- /react-text --><!-- react-text: 217 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 219 -->&lt;<!-- /react-text --><!-- react-text: 220 -->a-entity<!-- /react-text --><span class="name"> shortYellowBox</span><span> <i class="component fa fa-cube" title="geometry
+ - buffer: true
+ - depth: 1
+ - height: 1
+ - primitive: box
+ - segmentsDepth: 1
+ - segmentsHeight: 1
+ - segmentsWidth: 1
+ - skipCache: false
+ - width: 1"></i> <i class="component fa fa-picture-o" title="material
+ - alphaTest: 0
+ - ambientOcclusionMap: 
+ - ambientOcclusionMapIntensity: 1
+ - ambientOcclusionTextureOffset: [object Object]
+ - ambientOcclusionTextureRepeat: [object Object]
+ - blending: normal
+ - color: #FFC65D
+ - depthTest: true
+ - depthWrite: true
+ - displacementBias: 0.5
+ - displacementMap: 
+ - displacementScale: 1
+ - displacementTextureOffset: [object Object]
+ - displacementTextureRepeat: [object Object]
+ - emissive: #000
+ - emissiveIntensity: 1
+ - envMap: 
+ - flatShading: false
+ - fog: true
+ - height: 256
+ - metalness: 0
+ - metalnessMap: 
+ - metalnessTextureOffset: [object Object]
+ - metalnessTextureRepeat: [object Object]
+ - normalMap: 
+ - normalScale: [object Object]
+ - normalTextureOffset: [object Object]
+ - normalTextureRepeat: [object Object]
+ - npot: false
+ - offset: [object Object]
+ - opacity: 1
+ - repeat: [object Object]
+ - roughness: 0.5
+ - roughnessMap: 
+ - roughnessTextureOffset: [object Object]
+ - roughnessTextureRepeat: [object Object]
+ - shader: standard
+ - side: front
+ - sphericalEnvMap: 
+ - src: 
+ - transparent: false
+ - vertexColors: none
+ - visible: true
+ - width: 512
+ - wireframe: false
+ - wireframeLinewidth: 2"></i></span><!-- react-text: 223 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 230 --> <!-- /react-text --><!-- react-text: 231 -->    <!-- /react-text --><!-- react-text: 232 --> <!-- /react-text --><span class="collasespace fa fa-caret-right"></span><!-- react-text: 234 -->&lt;<!-- /react-text --><!-- react-text: 235 -->a-entity<!-- /react-text --><span class="name"> redBox</span><span> <i class="component fa fa-cube" title="geometry
+ - buffer: true
+ - depth: 1
+ - height: 1
+ - primitive: box
+ - segmentsDepth: 1
+ - segmentsHeight: 1
+ - segmentsWidth: 1
+ - skipCache: false
+ - width: 1"></i> <i class="component fa fa-picture-o" title="material
+ - alphaTest: 0
+ - ambientOcclusionMap: 
+ - ambientOcclusionMapIntensity: 1
+ - ambientOcclusionTextureOffset: [object Object]
+ - ambientOcclusionTextureRepeat: [object Object]
+ - blending: normal
+ - color: #f00
+ - depthTest: true
+ - depthWrite: true
+ - displacementBias: 0.5
+ - displacementMap: 
+ - displacementScale: 1
+ - displacementTextureOffset: [object Object]
+ - displacementTextureRepeat: [object Object]
+ - emissive: #000
+ - emissiveIntensity: 1
+ - envMap: 
+ - flatShading: false
+ - fog: true
+ - height: 256
+ - metalness: 0
+ - metalnessMap: 
+ - metalnessTextureOffset: [object Object]
+ - metalnessTextureRepeat: [object Object]
+ - normalMap: 
+ - normalScale: [object Object]
+ - normalTextureOffset: [object Object]
+ - normalTextureRepeat: [object Object]
+ - npot: false
+ - offset: [object Object]
+ - opacity: 1
+ - repeat: [object Object]
+ - roughness: 0.5
+ - roughnessMap: 
+ - roughnessTextureOffset: [object Object]
+ - roughnessTextureRepeat: [object Object]
+ - shader: standard
+ - side: front
+ - sphericalEnvMap: 
+ - src: 
+ - transparent: false
+ - vertexColors: none
+ - visible: true
+ - width: 512
+ - wireframe: false
+ - wireframeLinewidth: 2"></i></span><!-- react-text: 238 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 245 --> <!-- /react-text --><!-- react-text: 246 -->    <!-- /react-text --><!-- react-text: 247 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 249 -->&lt;<!-- /react-text --><!-- react-text: 250 -->a-entity<!-- /react-text --><span class="name"> yellowSphere</span><span> <i class="component fa fa-cube" title="geometry
+ - buffer: true
+ - phiLength: 360
+ - phiStart: 0
+ - primitive: sphere
+ - radius: 1
+ - segmentsHeight: 18
+ - segmentsWidth: 36
+ - skipCache: false
+ - thetaLength: 180
+ - thetaStart: 0"></i> <i class="component fa fa-picture-o" title="material
+ - alphaTest: 0
+ - ambientOcclusionMap: 
+ - ambientOcclusionMapIntensity: 1
+ - ambientOcclusionTextureOffset: [object Object]
+ - ambientOcclusionTextureRepeat: [object Object]
+ - blending: normal
+ - color: #ff0
+ - depthTest: true
+ - depthWrite: true
+ - displacementBias: 0.5
+ - displacementMap: 
+ - displacementScale: 1
+ - displacementTextureOffset: [object Object]
+ - displacementTextureRepeat: [object Object]
+ - emissive: #000
+ - emissiveIntensity: 1
+ - envMap: 
+ - flatShading: false
+ - fog: true
+ - height: 256
+ - metalness: 0
+ - metalnessMap: 
+ - metalnessTextureOffset: [object Object]
+ - metalnessTextureRepeat: [object Object]
+ - normalMap: 
+ - normalScale: [object Object]
+ - normalTextureOffset: [object Object]
+ - normalTextureRepeat: [object Object]
+ - npot: false
+ - offset: [object Object]
+ - opacity: 1
+ - repeat: [object Object]
+ - roughness: 1
+ - roughnessMap: 
+ - roughnessTextureOffset: [object Object]
+ - roughnessTextureRepeat: [object Object]
+ - shader: standard
+ - side: front
+ - sphericalEnvMap: 
+ - src: 
+ - transparent: false
+ - vertexColors: none
+ - visible: true
+ - width: 512
+ - wireframe: false
+ - wireframeLinewidth: 2"></i></span><!-- react-text: 253 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 260 --> <!-- /react-text --><!-- react-text: 261 -->    <!-- /react-text --><!-- react-text: 262 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 264 -->&lt;<!-- /react-text --><!-- react-text: 265 -->a-box<!-- /react-text --><span class="name"></span><span> <i class="component fa fa-cube" title="geometry
+ - buffer: true
+ - depth: 1
+ - height: 1
+ - primitive: box
+ - segmentsDepth: 1
+ - segmentsHeight: 1
+ - segmentsWidth: 1
+ - skipCache: false
+ - width: 1"></i> <i class="component fa fa-picture-o" title="material
+ - alphaTest: 0
+ - ambientOcclusionMap: 
+ - ambientOcclusionMapIntensity: 1
+ - ambientOcclusionTextureOffset: [object Object]
+ - ambientOcclusionTextureRepeat: [object Object]
+ - blending: normal
+ - color: #F16745
+ - depthTest: true
+ - depthWrite: true
+ - displacementBias: 0.5
+ - displacementMap: 
+ - displacementScale: 1
+ - displacementTextureOffset: [object Object]
+ - displacementTextureRepeat: [object Object]
+ - emissive: #000
+ - emissiveIntensity: 1
+ - envMap: 
+ - flatShading: false
+ - fog: true
+ - height: 256
+ - metalness: 0
+ - metalnessMap: 
+ - metalnessTextureOffset: [object Object]
+ - metalnessTextureRepeat: [object Object]
+ - normalMap: 
+ - normalScale: [object Object]
+ - normalTextureOffset: [object Object]
+ - normalTextureRepeat: [object Object]
+ - npot: false
+ - offset: [object Object]
+ - opacity: 1
+ - repeat: [object Object]
+ - roughness: 0.5
+ - roughnessMap: 
+ - roughnessTextureOffset: [object Object]
+ - roughnessTextureRepeat: [object Object]
+ - shader: standard
+ - side: front
+ - sphericalEnvMap: 
+ - src: https://aframe.io/sample-assets/assets/images/bricks/brick_bump.jpg
+ - transparent: false
+ - vertexColors: none
+ - visible: true
+ - width: 512
+ - wireframe: false
+ - wireframeLinewidth: 2"></i></span><!-- react-text: 268 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 275 --> <!-- /react-text --><!-- react-text: 276 -->    <!-- /react-text --><!-- react-text: 277 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 279 -->&lt;<!-- /react-text --><!-- react-text: 280 -->a-box<!-- /react-text --><span class="name"> box</span><span> <i class="component fa fa-cube" title="geometry
+ - buffer: true
+ - depth: 1
+ - height: 2
+ - primitive: box
+ - segmentsDepth: 1
+ - segmentsHeight: 1
+ - segmentsWidth: 1
+ - skipCache: false
+ - width: 1"></i> <i class="component fa fa-picture-o" title="material
+ - alphaTest: 0
+ - ambientOcclusionMap: 
+ - ambientOcclusionMapIntensity: 1
+ - ambientOcclusionTextureOffset: [object Object]
+ - ambientOcclusionTextureRepeat: [object Object]
+ - blending: normal
+ - color: #FFC65D
+ - depthTest: true
+ - depthWrite: true
+ - displacementBias: 0.5
+ - displacementMap: 
+ - displacementScale: 1
+ - displacementTextureOffset: [object Object]
+ - displacementTextureRepeat: [object Object]
+ - emissive: #000
+ - emissiveIntensity: 1
+ - envMap: 
+ - flatShading: false
+ - fog: true
+ - height: 256
+ - metalness: 0
+ - metalnessMap: 
+ - metalnessTextureOffset: [object Object]
+ - metalnessTextureRepeat: [object Object]
+ - normalMap: 
+ - normalScale: [object Object]
+ - normalTextureOffset: [object Object]
+ - normalTextureRepeat: [object Object]
+ - npot: false
+ - offset: [object Object]
+ - opacity: 1
+ - repeat: [object Object]
+ - roughness: 0.5
+ - roughnessMap: 
+ - roughnessTextureOffset: [object Object]
+ - roughnessTextureRepeat: [object Object]
+ - shader: standard
+ - side: front
+ - sphericalEnvMap: 
+ - src: 
+ - transparent: false
+ - vertexColors: none
+ - visible: true
+ - width: 512
+ - wireframe: false
+ - wireframeLinewidth: 2"></i></span><!-- react-text: 283 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 290 --> <!-- /react-text --><!-- react-text: 291 -->    <!-- /react-text --><!-- react-text: 292 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 294 -->&lt;<!-- /react-text --><!-- react-text: 295 -->a-entity<!-- /react-text --><span class="name"> boxClass</span><span> <i class="component fa fa-cube" title="geometry
+ - buffer: true
+ - depth: 1
+ - height: 1
+ - primitive: box
+ - segmentsDepth: 1
+ - segmentsHeight: 1
+ - segmentsWidth: 1
+ - skipCache: false
+ - width: 1"></i> <i class="component fa fa-picture-o" title="material
+ - alphaTest: 0
+ - ambientOcclusionMap: 
+ - ambientOcclusionMapIntensity: 1
+ - ambientOcclusionTextureOffset: [object Object]
+ - ambientOcclusionTextureRepeat: [object Object]
+ - blending: normal
+ - color: #FFF
+ - depthTest: true
+ - depthWrite: true
+ - displacementBias: 0.5
+ - displacementMap: 
+ - displacementScale: 1
+ - displacementTextureOffset: [object Object]
+ - displacementTextureRepeat: [object Object]
+ - emissive: #000
+ - emissiveIntensity: 1
+ - envMap: 
+ - flatShading: false
+ - fog: true
+ - height: 256
+ - metalness: 0
+ - metalnessMap: 
+ - metalnessTextureOffset: [object Object]
+ - metalnessTextureRepeat: [object Object]
+ - normalMap: 
+ - normalScale: [object Object]
+ - normalTextureOffset: [object Object]
+ - normalTextureRepeat: [object Object]
+ - npot: false
+ - offset: [object Object]
+ - opacity: 1
+ - repeat: [object Object]
+ - roughness: 0.5
+ - roughnessMap: 
+ - roughnessTextureOffset: [object Object]
+ - roughnessTextureRepeat: [object Object]
+ - shader: standard
+ - side: front
+ - sphericalEnvMap: 
+ - src: [object HTMLImageElement]
+ - transparent: false
+ - vertexColors: none
+ - visible: true
+ - width: 512
+ - wireframe: false
+ - wireframeLinewidth: 2"></i></span><!-- react-text: 298 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 305 --> <!-- /react-text --><!-- react-text: 306 -->    <!-- /react-text --><!-- react-text: 307 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 309 -->&lt;<!-- /react-text --><!-- react-text: 310 -->a-entity<!-- /react-text --><span class="name"> boxClass</span><span> <i class="component fa fa-cube" title="geometry
+ - buffer: true
+ - depth: 1
+ - height: 1
+ - primitive: box
+ - segmentsDepth: 1
+ - segmentsHeight: 1
+ - segmentsWidth: 1
+ - skipCache: false
+ - width: 1"></i> <i class="component fa fa-picture-o" title="material
+ - alphaTest: 0
+ - ambientOcclusionMap: 
+ - ambientOcclusionMapIntensity: 1
+ - ambientOcclusionTextureOffset: [object Object]
+ - ambientOcclusionTextureRepeat: [object Object]
+ - blending: normal
+ - color: #0f0
+ - depthTest: true
+ - depthWrite: true
+ - displacementBias: 0.5
+ - displacementMap: 
+ - displacementScale: 1
+ - displacementTextureOffset: [object Object]
+ - displacementTextureRepeat: [object Object]
+ - emissive: #000
+ - emissiveIntensity: 1
+ - envMap: 
+ - flatShading: false
+ - fog: true
+ - height: 256
+ - metalness: 0
+ - metalnessMap: 
+ - metalnessTextureOffset: [object Object]
+ - metalnessTextureRepeat: [object Object]
+ - normalMap: 
+ - normalScale: [object Object]
+ - normalTextureOffset: [object Object]
+ - normalTextureRepeat: [object Object]
+ - npot: false
+ - offset: [object Object]
+ - opacity: 1
+ - repeat: [object Object]
+ - roughness: 0.5
+ - roughnessMap: 
+ - roughnessTextureOffset: [object Object]
+ - roughnessTextureRepeat: [object Object]
+ - shader: standard
+ - side: front
+ - sphericalEnvMap: 
+ - src: 
+ - transparent: false
+ - vertexColors: none
+ - visible: true
+ - width: 512
+ - wireframe: false
+ - wireframeLinewidth: 2"></i></span><!-- react-text: 313 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 320 --> <!-- /react-text --><!-- react-text: 321 -->    <!-- /react-text --><!-- react-text: 322 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 324 -->&lt;<!-- /react-text --><!-- react-text: 325 -->a-entity<!-- /react-text --><span class="name"> floor</span><span> <i class="component fa fa-cube" title="geometry
+ - buffer: true
+ - depth: 24
+ - height: 0.2
+ - primitive: box
+ - segmentsDepth: 1
+ - segmentsHeight: 1
+ - segmentsWidth: 1
+ - skipCache: false
+ - width: 24"></i> <i class="component fa fa-picture-o" title="material
+ - alphaTest: 0
+ - ambientOcclusionMap: 
+ - ambientOcclusionMapIntensity: 1
+ - ambientOcclusionTextureOffset: [object Object]
+ - ambientOcclusionTextureRepeat: [object Object]
+ - blending: normal
+ - color: #fafafa
+ - depthTest: true
+ - depthWrite: true
+ - displacementBias: 0.5
+ - displacementMap: 
+ - displacementScale: 1
+ - displacementTextureOffset: [object Object]
+ - displacementTextureRepeat: [object Object]
+ - emissive: #000
+ - emissiveIntensity: 1
+ - envMap: 
+ - flatShading: false
+ - fog: true
+ - height: 256
+ - metalness: 0.1
+ - metalnessMap: 
+ - metalnessTextureOffset: [object Object]
+ - metalnessTextureRepeat: [object Object]
+ - normalMap: 
+ - normalScale: [object Object]
+ - normalTextureOffset: [object Object]
+ - normalTextureRepeat: [object Object]
+ - npot: false
+ - offset: [object Object]
+ - opacity: 1
+ - repeat: [object Object]
+ - roughness: 1
+ - roughnessMap: 
+ - roughnessTextureOffset: [object Object]
+ - roughnessTextureRepeat: [object Object]
+ - shader: standard
+ - side: front
+ - sphericalEnvMap: 
+ - src: [object HTMLImageElement]
+ - transparent: false
+ - vertexColors: none
+ - visible: true
+ - width: 512
+ - wireframe: false
+ - wireframeLinewidth: 2"></i></span><!-- react-text: 328 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 335 --> <!-- /react-text --><!-- react-text: 336 -->    <!-- /react-text --><!-- react-text: 337 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 339 -->&lt;<!-- /react-text --><!-- react-text: 340 -->a-entity<!-- /react-text --><span class="name"> pointLight</span><span> <i class="component fa fa-lightbulb-o" title="light
+ - angle: 60
+ - castShadow: false
+ - color: #FFF
+ - decay: 1
+ - distance: 0
+ - groundColor: #FFF
+ - intensity: 0.25
+ - penumbra: 0
+ - shadowBias: 0
+ - shadowCameraBottom: -5
+ - shadowCameraFar: 500
+ - shadowCameraFov: 90
+ - shadowCameraLeft: -5
+ - shadowCameraNear: 0.5
+ - shadowCameraRight: 5
+ - shadowCameraTop: 5
+ - shadowCameraVisible: false
+ - shadowMapHeight: 512
+ - shadowMapWidth: 512
+ - shadowRadius: 1
+ - target: null
+ - type: point"></i></span><!-- react-text: 343 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 350 --> <!-- /react-text --><!-- react-text: 351 -->    <!-- /react-text --><!-- react-text: 352 --> <!-- /react-text --><span class="collasespace fa fa-caret-right"></span><!-- react-text: 354 -->&lt;<!-- /react-text --><!-- react-text: 355 -->a-entity<!-- /react-text --><span class="name"> cameraWrapper</span><span></span><!-- react-text: 358 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 365 --> <!-- /react-text --><!-- react-text: 366 -->    <!-- /react-text --><!-- react-text: 367 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 369 -->&lt;<!-- /react-text --><!-- react-text: 370 -->a-entity<!-- /react-text --><span class="name"> leftHand</span><span></span><!-- react-text: 373 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div><div class="option" value="[object HTMLElement]"><span><i title="Toggle entity visibility" class="fa fa-eye"></i><!-- react-text: 380 --> <!-- /react-text --><!-- react-text: 381 -->    <!-- /react-text --><!-- react-text: 382 --> <!-- /react-text --><span class="collasespace"></span><!-- react-text: 384 -->&lt;<!-- /react-text --><!-- react-text: 385 -->a-entity<!-- /react-text --><span class="name"> rightHand</span><span></span><!-- react-text: 388 -->&gt;<!-- /react-text --></span><span class="icons"><a title="Clone entity" class="button fa fa-clone"></a><a title="Remove entity" class="button fa fa-trash-o"></a></span></div></div></div><div id="right-panels"><div class="toolbar"><a title="translate" class="button fa fa-arrows active"></a><a title="rotate" class="button fa fa-repeat"></a><a title="scale" class="button fa fa-expand"></a><span class="local-transform"><input type="checkbox" id="local" value="on"><label for="local">local</label></span></div><div></div></div></div><div class="modal hide"><div class="modal-content"><div class="modal-header"><span class="close">×</span><h3>Shortcuts</h3></div><div class="modal-body"><div class="help-lists"><ul class="help-list"><li class="help-key-unit"><kbd class="help-key"><span>w</span></kbd><span class="help-key-def">Translate</span></li><li class="help-key-unit"><kbd class="help-key"><span>e</span></kbd><span class="help-key-def">Rotate</span></li><li class="help-key-unit"><kbd class="help-key"><span>r</span></kbd><span class="help-key-def">Scale</span></li><li class="help-key-unit"><kbd class="help-key"><span>d</span></kbd><span class="help-key-def">Duplicate selected entity</span></li><li class="help-key-unit"><kbd class="help-key"><span>g</span></kbd><span class="help-key-def">Toggle grid visibility</span></li><li class="help-key-unit"><kbd class="help-key"><span>n</span></kbd><span class="help-key-def">Add new entity</span></li><li class="help-key-unit"><kbd class="help-key"><span>supr |&nbsp;backspace</span></kbd><span class="help-key-def">Delete selected entity</span></li></ul><ul class="help-list"><li class="help-key-unit"><kbd class="help-key"><span>1</span></kbd><span class="help-key-def">Toggle scenegraph panel</span></li><li class="help-key-unit"><kbd class="help-key"><span>2</span></kbd><span class="help-key-def">Toggle components panel</span></li><li class="help-key-unit"><kbd class="help-key"><span>tab</span></kbd><span class="help-key-def">Toggle scenegraph and components panel</span></li><li class="help-key-unit"><kbd class="help-key"><span>m</span></kbd><span class="help-key-def">Toggle motion capture tools</span></li><li class="help-key-unit"><kbd class="help-key"><span>ctrl |&nbsp;cmd</span></kbd><kbd class="help-key"><span>x</span></kbd><span class="help-key-def">Cut selected entity</span></li><li class="help-key-unit"><kbd class="help-key"><span>ctrl |&nbsp;cmd</span></kbd><kbd class="help-key"><span>c</span></kbd><span class="help-key-def">Copy selected entity</span></li><li class="help-key-unit"><kbd class="help-key"><span>ctrl |&nbsp;cmd</span></kbd><kbd class="help-key"><span>v</span></kbd><span class="help-key-def">Paste entity</span></li><li class="help-key-unit"><kbd class="help-key"><span>h</span></kbd><span class="help-key-def">Show this help</span></li><li class="help-key-unit"><kbd class="help-key"><span>Esc</span></kbd><span class="help-key-def">Exit edit mode</span></li><li class="help-key-unit"><kbd class="help-key"><span>ctrl</span></kbd><kbd class="help-key"><span>alt</span></kbd><kbd class="help-key"><span>i</span></kbd><span class="help-key-def">Switch Edit and VR Modes</span></li></ul></div></div></div></div></div></div>
+
+<a data-aframe-inspector="" href="https://github.com/aframevr/aframe-inspector" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#1E1E1E; color:#FAFAFA; position: absolute; bottom: 0; border: 0; left: 0; transform: rotate(180deg); z-index: 9999" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style data-aframe-inspector="">.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+<span style="border-radius: 3px !important; text-indent: 20px !important; width: auto !important; padding: 0px 4px 0px 0px !important; text-align: center !important; font: bold 11px/20px &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important; color: rgb(255, 255, 255) !important; background: url(&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzBweCIgd2lkdGg9IjMwcHgiIHZpZXdCb3g9Ii0xIC0xIDMxIDMxIj48Zz48cGF0aCBkPSJNMjkuNDQ5LDE0LjY2MiBDMjkuNDQ5LDIyLjcyMiAyMi44NjgsMjkuMjU2IDE0Ljc1LDI5LjI1NiBDNi42MzIsMjkuMjU2IDAuMDUxLDIyLjcyMiAwLjA1MSwxNC42NjIgQzAuMDUxLDYuNjAxIDYuNjMyLDAuMDY3IDE0Ljc1LDAuMDY3IEMyMi44NjgsMC4wNjcgMjkuNDQ5LDYuNjAxIDI5LjQ0OSwxNC42NjIiIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIj48L3BhdGg+PHBhdGggZD0iTTE0LjczMywxLjY4NiBDNy41MTYsMS42ODYgMS42NjUsNy40OTUgMS42NjUsMTQuNjYyIEMxLjY2NSwyMC4xNTkgNS4xMDksMjQuODU0IDkuOTcsMjYuNzQ0IEM5Ljg1NiwyNS43MTggOS43NTMsMjQuMTQzIDEwLjAxNiwyMy4wMjIgQzEwLjI1MywyMi4wMSAxMS41NDgsMTYuNTcyIDExLjU0OCwxNi41NzIgQzExLjU0OCwxNi41NzIgMTEuMTU3LDE1Ljc5NSAxMS4xNTcsMTQuNjQ2IEMxMS4xNTcsMTIuODQyIDEyLjIxMSwxMS40OTUgMTMuNTIyLDExLjQ5NSBDMTQuNjM3LDExLjQ5NSAxNS4xNzUsMTIuMzI2IDE1LjE3NSwxMy4zMjMgQzE1LjE3NSwxNC40MzYgMTQuNDYyLDE2LjEgMTQuMDkzLDE3LjY0MyBDMTMuNzg1LDE4LjkzNSAxNC43NDUsMTkuOTg4IDE2LjAyOCwxOS45ODggQzE4LjM1MSwxOS45ODggMjAuMTM2LDE3LjU1NiAyMC4xMzYsMTQuMDQ2IEMyMC4xMzYsMTAuOTM5IDE3Ljg4OCw4Ljc2NyAxNC42NzgsOC43NjcgQzEwLjk1OSw4Ljc2NyA4Ljc3NywxMS41MzYgOC43NzcsMTQuMzk4IEM4Ljc3NywxNS41MTMgOS4yMSwxNi43MDkgOS43NDksMTcuMzU5IEM5Ljg1NiwxNy40ODggOS44NzIsMTcuNiA5Ljg0LDE3LjczMSBDOS43NDEsMTguMTQxIDkuNTIsMTkuMDIzIDkuNDc3LDE5LjIwMyBDOS40MiwxOS40NCA5LjI4OCwxOS40OTEgOS4wNCwxOS4zNzYgQzcuNDA4LDE4LjYyMiA2LjM4NywxNi4yNTIgNi4zODcsMTQuMzQ5IEM2LjM4NywxMC4yNTYgOS4zODMsNi40OTcgMTUuMDIyLDYuNDk3IEMxOS41NTUsNi40OTcgMjMuMDc4LDkuNzA1IDIzLjA3OCwxMy45OTEgQzIzLjA3OCwxOC40NjMgMjAuMjM5LDIyLjA2MiAxNi4yOTcsMjIuMDYyIEMxNC45NzMsMjIuMDYyIDEzLjcyOCwyMS4zNzkgMTMuMzAyLDIwLjU3MiBDMTMuMzAyLDIwLjU3MiAxMi42NDcsMjMuMDUgMTIuNDg4LDIzLjY1NyBDMTIuMTkzLDI0Ljc4NCAxMS4zOTYsMjYuMTk2IDEwLjg2MywyNy4wNTggQzEyLjA4NiwyNy40MzQgMTMuMzg2LDI3LjYzNyAxNC43MzMsMjcuNjM3IEMyMS45NSwyNy42MzcgMjcuODAxLDIxLjgyOCAyNy44MDEsMTQuNjYyIEMyNy44MDEsNy40OTUgMjEuOTUsMS42ODYgMTQuNzMzLDEuNjg2IiBmaWxsPSIjYmQwODFjIj48L3BhdGg+PC9nPjwvc3ZnPg==&quot;) 3px 50% / 14px 14px no-repeat rgb(189, 8, 28) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; -webkit-font-smoothing: antialiased !important;">Save</span><span style="border-radius: 12px; width: 24px !important; height: 24px !important; background: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxtYXNrIGlkPSJtIj48cmVjdCBmaWxsPSIjZmZmIiB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHJ4PSI2IiByeT0iNiIvPjxyZWN0IGZpbGw9IiMwMDAiIHg9IjUiIHk9IjUiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNCIgcng9IjEiIHJ5PSIxIi8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMTAiIHk9IjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjI0Ii8+PHJlY3QgZmlsbD0iIzAwMCIgeD0iMCIgeT0iMTAiIHdpZHRoPSIyNCIgaGVpZ2h0PSI0Ii8+PC9tYXNrPjwvZGVmcz48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9IiNmZmYiIG1hc2s9InVybCgjbSkiLz48L3N2Zz4=&quot;) 50% 50% / 14px 14px no-repeat rgba(0, 0, 0, 0.4) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important;"></span></body></html>
