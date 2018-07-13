@@ -1,0 +1,234 @@
+<html>
+   <head>
+      <title>Shader Based Game of Life by Charlie Hoey</title>
+
+            <meta name="viewport" content="width=device-width; initial-scale=1, maximum-scale=1">      
+      <script type="text/javascript">
+        var APP = APP || {};
+      </script>
+      <!-- threejs requirements -->
+      <script src="js/Detector.js"></script>
+      <script type="text/javascript" src="js/three.70.min.js"></script>
+
+
+      <!-- flimshaw threeJS scene tools and requirements -->
+      <script src="js/postprocessing/ShaderPass.js"></script>
+      <script src="js/shaders/CopyShader.js"></script>
+		<script src="js/controls/TrackballControls.js"></script>
+      <script src="js/postprocessing/MaskPass.js"></script>
+      <script src="js/postprocessing/EffectComposer.js"></script>
+      <script src="js/postprocessing/RenderPass.js"></script>
+      <script src="js/shaders/Technicolor3Shader.js"></script>
+      <script src="js/shaders/FilmShader.js"></script>
+      <script src="js/shaders/FXAAShader.js"></script>
+      <script type="text/javascript" src="js/hammer.min.js"></script>
+      <script type="text/javascript" src="js/custom.three.libraries.js"></script>
+      <script type="text/javascript" src="js/threejs_boilerplate.js"></script>
+
+      <!-- other javascript library requirements -->
+      <script type="text/javascript" src="js/underscore-min.js"></script>
+      <script type="text/javascript" src="js/zepto.min.js"></script>
+
+      <!-- Shaders -->
+      <script type="x-shader/x-vertex" id="vertexShaderSimulation">
+
+		uniform float uTime;
+		varying vec2 vUv;
+
+		void main() {
+
+		    vUv = uv;
+
+	        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+		}
+
+      </script>
+
+	<script type="x-shader/x-fragment" id="fragmentShaderSimulation">
+
+		varying vec2 vUv;
+		uniform float uTime;
+		uniform sampler2D tCurrentFront;
+		uniform float uSize;
+		uniform float uRandomize;
+		uniform float uMouseDown;
+		uniform vec2 uMouseCoords;
+
+		float random(vec2 p){return fract(cos(dot(p,vec2(23.14069263277926,2.665144142690225)))*123456.);}
+
+		void main() {
+
+			float cellWidth = 1. / uSize;
+			vec4 tex = vec4(0., 0., 0., 1.);
+
+
+
+			// get the velocity of the current cell
+			vec4 current = texture2D(tCurrentFront, vec2(vUv.x, vUv.y));
+
+			// loop through neighbors and see how many are alive
+			float neighbors = 0.;
+
+			// // top row
+			vec4 tl = texture2D(tCurrentFront, vec2(vUv.x - cellWidth, vUv.y - cellWidth));
+			vec4 tc = texture2D(tCurrentFront, vec2(vUv.x, vUv.y - cellWidth));
+			vec4 tr = texture2D(tCurrentFront, vec2(vUv.x + cellWidth, vUv.y - cellWidth));
+
+			// // side neighbors
+			vec4 l = texture2D(tCurrentFront, vec2(vUv.x - cellWidth, vUv.y));
+			vec4 r = texture2D(tCurrentFront, vec2(vUv.x + cellWidth, vUv.y));
+
+			// // bottom row
+			vec4 bl = texture2D(tCurrentFront, vec2(vUv.x - cellWidth, vUv.y + cellWidth) );
+			vec4 bc = texture2D(tCurrentFront, vec2(vUv.x, vUv.y + cellWidth) );
+			vec4 br = texture2D(tCurrentFront, vec2(vUv.x + cellWidth, vUv.y + cellWidth));
+
+			if(tl.g > .25) neighbors += 1.;
+			if(tc.g > .25) neighbors += 1.;
+			if(tr.g > .25) neighbors += 1.;
+			if(l.g > .25) neighbors += 1.;
+			if(r.g > .25) neighbors += 1.;
+			if(bl.g > .25) neighbors += 1.;
+			if(bc.g > .25) neighbors += 1.;
+			if(br.g > .25) neighbors += 1.;
+
+			// if we are currently alive
+			if(current.r > .25) {
+				// if we have fewer than 2. or greater than 3. neighbors, we die
+				if(neighbors < 1.9 || neighbors > 3.1) {
+					tex = vec4(0., 0., 0., 1.);
+				} else {
+					tex = vec4(1., 1., 1., 1.);
+				}
+			// if we are currently dead
+			} else {
+				if(neighbors > 2.9 && neighbors < 3.1) {
+					tex = vec4(1., 1., 1., 1.);
+				}
+			}
+
+			// use mouse interactions
+			if(uMouseDown > 0.) {
+
+				if(vUv.x >= uMouseCoords.x && vUv.x < uMouseCoords.x + 1. / uSize) {
+					if(vUv.y >= uMouseCoords.y && vUv.y < uMouseCoords.y + 1. / uSize) {
+						tex = vec4(1., 1., 1., 1.);
+					}
+				}
+
+			}
+
+			// float t = random(vUv + sin(uTime * .1));
+
+			// find out what the value of the cell is that is where this cell was in the previous step
+			// vec4 next = texture2D(tCurrentFront, vec2(vUv.x - ( (current.b - .5) * cellWidth), vUv.y - ( (current.g -.5) * cellWidth)));
+
+			// vec3 n = vec3( .5, random(vUv + sin( uTime ) ), random(vUv + sin(uTime - 1.) ) ) - vec3(.5);
+
+			// if the next cell is the same as the current one, randomize it a bit
+			// if( next.g < .5 || next.b < .5 || next == current) {
+			// 	next = vec4(next.rgb - (n * .01), 1.);
+			// }
+
+
+		    gl_FragColor = vec4( tex.rgb, 1. );
+		}
+
+      </script>
+
+
+      <script type="x-shader/x-vertex" id="vertexShaderDisplay">
+
+		uniform float uTime;
+		varying vec2 vUv;
+		uniform sampler2D tDiffuse;
+
+		void main() {
+
+		    vUv = uv;
+
+		    vec4 tex = texture2D(tDiffuse, vUv);
+
+	        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+
+		}
+
+      </script>
+
+
+       <script type="x-shader/x-fragment" id="fragmentShaderDisplay">
+
+		varying vec2 vUv;
+		uniform float uTime;
+		uniform sampler2D tDiffuse;
+
+		void main() {
+
+			// round vUv to the nearest 1/2048th of
+			vec2 newUv = vec2(vUv.x * 2048. * (1. / 2048.), vUv.y * 2048. * (1. / 2048.));
+
+			vec4 tex = texture2D(tDiffuse, newUv);
+
+		    gl_FragColor = vec4( tex.rgb, 1. );
+		}
+
+      </script>
+
+
+      <script type="text/javascript" src="js/shader-game-of-life.js"></script>
+
+
+
+
+      <link href="../css/src/lib/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="../css/src/lib/bootstrap/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+      <link href="../css/font-awesome.min.css" rel="stylesheet" media="screen">
+      <link rel="stylesheet" type="text/css" href="../css/dist/demos.css">
+
+   </head>
+   <body>
+      <div class="demo-overlay">
+        <div class="info">
+          <h1>2048x2048 Shader Game of Life</h1>
+
+          <p><strong>Instructions:</strong> click to spawn life in a cell, right click and drag to pan, scroll or pinch on mobile to zoom, hold shift and drag to rotate.</p>
+
+          <p>A Conway's Game of Life simulation that runs entirely on the GPU. My laptop doesn't have the best video card, but I was able to run <a href="shader-game-of-life-resolution=4096.html">a 4096 square version</a> with a little instability. I use two RenderTargets as FBO's and ping pong between them every other render cycle. In this way, each iteration happens entirely on the GPU, and we can use its massively parallel architecture to make short work of this kind of simulation. It is mapped 1:1 (hopefully) with your screen, so each cell in the simulation should take up exactly one pixel, so if you have a retina display, maybe invest in a jeweler's loupe and view the <a href="shader-game-of-life-staticView=true.html">1:1 pixel mapped version</a>.</p>
+
+          <p>Special thanks to <a href="http://stackoverflow.com/questions/21533757/three-js-use-framebuffer-as-texture">this StackOverflow post</a> and <a href="http://nullprogram.com/blog/2014/06/10/">this writeup by Chris Wellons</a>.</p>
+          <div class="footer">
+	          <a href="../index.html#threejs" class="back-link">&laquo; more three.js demos</a>
+
+	          	<a class="twitter-share-button"
+				  href="https://twitter.com/share?related=flimshaw:Charlie%20Hoey&via=flimshaw">
+				Tweet
+				</a>
+				<script>
+				window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+				</script>
+
+				<a href="http://twitter.com/flimshaw" class="follow-link">&raquo; follow @flimshaw on Twitter</a>
+
+			</div>
+
+        </div>
+        <a class="hover-area"><i class="fa fa-info-circle"></i></a>
+      </div>
+   </body>
+   <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-608903-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>
+
+<!-- Localized -->

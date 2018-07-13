@@ -1,0 +1,84 @@
+<html>
+   <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1, maximum-scale=1">
+      <title>Tire Suspension by Charlie Hoey</title>
+
+      <script type="text/javascript" src="js/three.70.min.js"></script>
+
+      <script src="js/Detector.js"></script>
+      <script src="js/controls/TrackballControls.js"></script>
+      <script src="js/postprocessing/ShaderPass.js"></script>
+      <script src="js/shaders/CopyShader.js"></script>
+      <script src="js/postprocessing/EffectComposerRetina.js"></script>
+      <script src="js/postprocessing/RenderPass.js"></script>
+      <script src="js/postprocessing/MaskPass.js"></script>
+      <script src="js/shaders/FXAAShader.js"></script>
+      <script src="js/shaders/FilmShader.js"></script>
+
+      <script type="text/javascript" src="js/loaders/ColladaLoader.js"></script>
+      <script type="text/javascript" src="js/zepto.min.js"></script>
+
+
+      <script type="text/javascript" src="js/new-threejs-boilerplate3.js"></script>
+      <script src="js/seedrandom.min.js"></script>
+      <script type="text/javascript" src="js/raycast-tire-suspension.js"></script>
+
+      <link href="../css/src/lib/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="../css/src/lib/bootstrap/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+      <link href="../css/font-awesome.min.css" rel="stylesheet" media="screen">
+      <link rel="stylesheet" type="text/css" href="../css/dist/demos.css">
+
+
+   </head>
+   <body>
+
+      <div class="demo-overlay">
+        <div class="info">
+          <h1>Raycast Tire Suspension</h1>
+          <p>This is a little demo I made to learn about raycasting and extruding shapes in Three.js.  I use <a href="http://davidbau.com/archives/2010/01/30/random_seeds_coded_hints_and_quintillions.html">David Bau's seeded random number generator</a> to generate a randomized spline curve, then extrude a wide rectangle along it.  Then I use a <a href="http://threejs.org/docs/#Reference/Core/Raycaster">Raycaster</a> to determine the point at which the tire touches the ground, and use that to make it follow whatever terrain is below it.  It lets the tire react to the environment in a more organic way, and would work to track the terrain on any mesh.</p>
+
+          <p>I'm also using a Raycaster as a kill-zone for off-screen terrain.  I usually do this with some string of if statements, but I kind of like thinking about it this way better, with raycast triggers.  If <a href="http://threejs.org/">three.js</a> had a simple hit/overlap test that'd be a nice way to go as well.</p>
+          <!--
+          <p>Possible future improvements include:</p>
+
+          <ul>
+          	<li>Use math to make rotational velocity of the tire dependent on actual linear distance traveled per frame</li>
+          	<li>Add some velocity type calculations to make the tire bounce when it goes over a hill</li>
+          	<li>Add a variety of terrain the tire can roll over</li>
+          </ul>
+		  -->
+                    <div class="footer">
+            <a href="../index.html#threejs" class="back-link">&laquo; more three.js demos</a>
+
+              <a class="twitter-share-button"
+          href="https://twitter.com/share?related=flimshaw:Charlie%20Hoey&via=flimshaw">
+        Tweet
+        </a>
+        <script>
+        window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+        </script>
+
+        <a href="http://twitter.com/flimshaw" class="follow-link">&raquo; follow @flimshaw on Twitter</a>
+
+      </div>
+        </div>
+        <a class="hover-area"><i class="fa fa-info-circle"></i></a>
+      </div>
+
+   </body>
+   <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-608903-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>
+<!-- Localized -->

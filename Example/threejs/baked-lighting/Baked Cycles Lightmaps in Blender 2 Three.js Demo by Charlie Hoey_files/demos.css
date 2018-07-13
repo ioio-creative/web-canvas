@@ -1,0 +1,91 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic);
+@import url(http://fonts.googleapis.com/css?family=Headland+One);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+html {
+  overflow: hidden;
+  height: 100%;
+}
+div#threejs {
+  width: 100%;
+  height: 100%;
+}
+#guiContainer {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+}
+body {
+  height: 100%;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+body {
+  font-family: "Headland One", helvetica, arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.demo-overlay {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+}
+.demo-overlay .hover-area {
+  color: #ff9900;
+  font-size: 2em;
+  position: relative;
+  top: 1em;
+  left: 1em;
+}
+.demo-overlay .info {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: -20px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  font-size: .9em;
+  transition: all .75s ease-in-out;
+}
+.demo-overlay .info h1 {
+  padding: 0;
+  margin-top: 20px;
+  font-size: 2.5em;
+}
+.demo-overlay .info a {
+  color: #ff9900;
+}
+.demo-overlay:hover .info {
+  max-height: 1000px;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+.demo-overlay .footer {
+
+}
+.demo-overlay .twitter-share-button, .demo-overlay .twitter-follow-button {
+  margin-left: 10px;
+}
+#twitter-widget-0 {
+  margin-bottom: -5px;
+}
+.demo-overlay a.follow-link {
+  float: right;
+  color: #33bbff;
+}
+
+@media (max-width: 600px) {
+  .demo-overlay a.follow-link {
+    float: left;
+  }
+}

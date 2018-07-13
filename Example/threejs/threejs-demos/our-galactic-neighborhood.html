@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Our Galactic Neighborhood by Charlie Hoey</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <script type="text/javascript">
+        var APP = APP || {};
+      </script>
+      <!-- threejs requirements -->
+      <script src="js/Detector.js"></script>
+      <script type="text/javascript" src="js/three.71.min.js"></script>
+
+       <!-- other javascript library requirements -->
+      <script type="text/javascript" src="js/underscore-min.js"></script>
+      <script type="text/javascript" src="js/zepto.min.js"></script>
+      <script type="text/javascript" src="js/jquery.nouislider.min.js"></script>
+
+      <!-- flimshaw threeJS scene tools and requirements -->
+      <script src="js/fonts/helvetiker_regular.typeface.js"></script>
+      <script src="js/postprocessing/ShaderPass.js"></script>
+      <script src="js/shaders/CopyShader.js"></script>
+      <script src="js/controls/TrackballControls.js"></script>
+      <script src="js/postprocessing/MaskPass.js"></script>
+      <script src="js/postprocessing/EffectComposer.js"></script>
+      <script src="js/postprocessing/RenderPass.js"></script>
+      <script src="js/shaders/Technicolor3Shader.js"></script>
+      <script src="js/shaders/FilmShader.js"></script>
+      <script src="js/shaders/FXAAShader.js"></script>
+      <script type="text/javascript" src="js/hammer.min.js"></script>
+      <script type="text/javascript" src="js/custom.three.libraries.js"></script>
+      <script type="text/javascript" src="js/threejs_boilerplate_2.js"></script>
+
+
+      <script type="x-shader/x-vertex" id="vertexShader">
+    precision highp float;
+		uniform float uTime;
+		uniform float uCameraDistance;
+		uniform vec3 uCameraPosition;
+    uniform float uScale;
+
+		attribute float magnitude;
+		attribute vec3 velocity;
+
+		varying vec2 vUv;
+		varying vec3 vColor;
+
+		void main() {
+
+		    vUv = uv;
+		    vColor = color;
+		    vec3 newPos = ( position + (velocity * uTime) );
+
+		    gl_PointSize = (.000095 / distance(newPos * vec3(1. / uScale), uCameraPosition)) + (.4 * magnitude);
+        if(gl_PointSize < 2.) gl_PointSize = 2.;
+        // gl_PointSize
+        //gl_PointSize = 2. * atan( (magnitude * 1500.) / (2. * abs( distance(newPos, uCameraPosition) ) ) );
+
+	      gl_Position = projectionMatrix * modelViewMatrix * vec4( newPos, 1.0 );
+
+		}
+
+      </script>
+
+
+       <script type="x-shader/x-fragment" id="fragmentShader">
+
+		varying vec2 vUv;
+		varying vec3 vColor;
+		uniform sampler2D tDiffuse;
+
+		uniform float uTime;
+
+		void main() {
+
+			vec4 c = texture2D(tDiffuse, vec2(gl_PointCoord.x, gl_PointCoord.y));
+
+			if(c.r < .15) {
+				c.a = 0.;
+			}
+
+		    float d = 1. - distance(gl_PointCoord, vec2(.5));
+			float da = float(d > .5);
+
+			if(d > .9) d = 1.;
+
+		    gl_FragColor = vec4( vec3(da * vColor), da );
+
+		    if(gl_FragColor.a < .5) discard;
+		}
+
+      </script>
+
+
+      <script type="x-shader/x-vertex" id="vertexShaderLine">
+precision highp float;
+    uniform float uTime;
+    uniform float uCameraDistance;
+    uniform vec3 uCameraPosition;
+
+    attribute float magnitude;
+    attribute vec3 velocity;
+
+    varying vec2 vUv;
+    varying vec3 vColor;
+
+    void main() {
+
+        vUv = uv;
+        // vColor = color;
+        vec3 newPos = position + (velocity * uTime);
+
+        // gl_PointSize = (.000095 / distance(newPos, uCameraPosition)) + (.4 * magnitude);
+        // if(gl_PointSize < 2.) gl_PointSize = 2.;
+        // gl_PointSize
+        //gl_PointSize = 2. * atan( (magnitude * 1500.) / (2. * abs( distance(newPos, uCameraPosition) ) ) );
+
+        gl_Position = projectionMatrix * modelViewMatrix * vec4( newPos, 1.0 );
+
+    }
+
+      </script>
+
+
+       <script type="x-shader/x-fragment" id="fragmentShaderLine">
+
+    varying vec2 vUv;
+    varying vec3 vColor;
+    uniform sampler2D tDiffuse;
+
+    uniform float uTime;
+
+    void main() {
+      gl_FragColor = vec4(1., 1., 1., 1.);
+    }
+
+      </script>
+
+
+
+
+
+      <script type="text/javascript" src="js/full-planetarium.js"></script>
+
+
+
+      <link href="../css/src/lib/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="../css/src/lib/bootstrap/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+      <link href="../css/font-awesome.min.css" rel="stylesheet" media="screen">
+      <link rel="stylesheet" type="text/css" href="../css/dist/demos.css">
+      <style type="text/css">
+      	.controls {
+      		position: absolute;
+      		bottom: 0px;
+      		width: 90%;
+      		left: 5%;
+          z-index: 1;
+      	}
+
+      	.controls .noUi-connect {
+      		background-color: #88a;
+      	}
+
+
+
+        .distInfo small {
+          font-size: .65em;
+          display: block;
+        }
+
+
+        .controls .year, .controls .distance {
+          width: 10em;
+        }
+
+        .controls  {
+          position: absolute;
+          bottom: 0;
+          width: 90%;
+          max-width: 1200px;
+          left: 50%;
+         transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); -o-transform: translateX(-50%);
+        }
+
+
+        .distInfo {
+          position: absolute;
+          top: 11%;
+          right: -75px;
+          width: 150px;
+          z-index: 2000;
+          line-height: 1em;
+        }
+
+        .distInfo .currentDist {
+          font-size: 1em;
+          color: #fff;
+          background-color: rbga(0, 0, 0, .5);
+          text-transform: uppercase;
+        }
+
+        .console {
+          color: #fff;
+        }
+
+        canvas {
+          z-index: 0!important;
+        }
+
+        /* custom UI scrubber styles */
+        .controls .noUi-base {
+          width: 100%;
+          height: 70px;
+          position: absolute;
+          bottom: 10px;
+          background-size: 100%;
+          background-repeat: no-repeat;
+
+          background-image: url(images/timeline-render-big.png);
+        }
+
+        .controls .noUi-origin {
+          position: absolute;
+          top: -40px;
+        }
+
+        .controls .noUi-handle {
+          display: block;
+          border: 1px solid #eee;
+          background: #fff;
+          width: 25px;
+          height: 50px;
+         transform: translateX(-50%); -webkit-transform: translateX(-50%); -moz-transform: translateX(-50%); -o-transform: translateX(-50%);
+        }
+
+        #distance {
+          position: absolute;
+          top: 2.55%;
+          right: 0;
+          height: 75%;
+          width: 100px;
+          z-index:1000;
+        }
+        #distance .noUi-origin {
+          position: absolute;
+        }
+
+        #distance  .noUi-base {
+          width: 100%;
+          height: 100%;
+          margin-top: 15%;
+          position: absolute;
+          background-size: auto 100%;
+          background-repeat: no-repeat;
+
+          background-image: url(images/timeline-distance.png);
+        }
+
+
+        #distance .noUi-handle {
+          display: block;
+          border: 1px solid #eee;
+          background: #fff;
+         transform: translateX(-75%) translateY(-50%); -webkit-transform: translateX(-75%) translateY(-50%); -moz-transform: translateX(-75%) translateY(-50%); -o-transform: translateX(-75%) translateY(-50%);
+          height: 20px;
+          width: 40px;
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+          .controls .noUi-base {
+
+            height: 40px;
+
+          }
+          #distance  {
+
+          height: 75%;
+
+            width: 70px;
+          }
+          .distInfo {
+            top: 75%;
+           transform: translateY(35px); -webkit-transform: translateY(35px); -moz-transform: translateY(35px); -o-transform: translateY(35px);
+          }
+        }
+
+.demo-overlay .hover-area {
+  color: #eee;
+  z-index: 99999;
+}
+
+.demo-overlay {
+  z-index: 20000;
+  height: 0;
+}
+
+.constellationSwitch {
+  display: block;
+  position: absolute;
+  height: 64px;
+  width: 64px;
+  top: -165px;
+  left: 0;
+  background-image: url(images/constellation-icon.png);
+  background-size: contain;
+}
+
+.off {
+  background-image: url(images/constellation-icon-off.png);
+}
+
+.constellationSwitch img {
+  width: 64px;
+  height: 64px;
+}
+
+#loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 100000;
+  text-align: center;
+ transition: all 1s ease-out; -webkit-transition: all 1s ease-out; -moz-transition: all 1s ease-out; -o-transition: all 1s ease-out;
+}
+
+.loaderOff {
+  opacity: 0;
+}
+
+#loader .loaderWrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+ transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); -moz-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%);
+}
+
+#loader .loader {
+  position: relative;
+
+  display: inline-block;
+}
+
+.loader {
+  font-size: 10px;
+  position: relative;
+  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-left: 1.1em solid #ffffff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+ transform: translateZ(0); -webkit-transform: translateZ(0); -moz-transform: translateZ(0); -o-transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+   transform: rotate(0deg); -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+   transform: rotate(360deg); -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -o-transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+   transform: rotate(0deg); -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+   transform: rotate(360deg); -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -o-transform: rotate(360deg);
+  }
+}
+
+#loader .message {
+  color: #eee;
+  margin-top: 1em;
+  text-align: left;
+  position: absolute;
+  bottom: -3em;
+  width: 200px;
+
+}
+
+      </style>
+   </head>
+   <body>
+      <div class="demo-overlay">
+        <div class="info">
+          <h1>Our Galactic Neighborhood</h1>
+          <p>This is a simulation of almost 110,000 charted stars in our galaxy, with our sun and earth at the center.  Each star is accurately colored and proportionately scaled based on its absolute magnitude.  Sliders allow you to zoom in and out, and see how the stars and constellations are moving over the eons (NOTE: no gravity calculations, just based on linear velocity so kind of a rough estimate).</p>
+
+          <p>Very special thanks to astronexus.com for their <a href="http://www.astronexus.com/hyg">Hyg stellar database</a> and to <a href="http://pbarbier.com/constellations/boundaries.html">Pierre Barbier</a> for his asterism definitions.</p>
+
+          <p>I am not a scientist, but if you are, and have ideas about how this simulation might be improved, I would love to talk to you about it, <a href="mailto:me@charliehoey.com">drop me a line</a>.</p>
+          <div class="footer">
+  	          <a href="../index.html#threejs" class="back-link">&laquo; more three.js demos</a>
+            	<a class="twitter-share-button"
+    				  href="https://twitter.com/share?related=flimshaw:Charlie%20Hoey&via=flimshaw">
+    				Tweet
+    				</a>
+    				<script>
+    				window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+    				</script>
+
+    				<a href="http://twitter.com/flimshaw" class="follow-link">&raquo; follow @flimshaw on Twitter</a>
+
+    			</div>
+        </div>
+        <a class="hover-area"><i class="fa fa-info-circle"></i></a>
+      </div>
+
+      <div id="loader">
+        <div class="loaderWrapper">
+<div class="loader"></div>
+  <div class="message">loading star data</div>
+</div>
+      </div>
+
+      <div class="controls">
+
+          <a href="#" class="constellationSwitch"></a>
+          <img src="images/constellation-icon-off.png" style="opacity: 0; position: absolute;">
+      		<div class="sliders" id="time"></div>
+
+      </div>
+              <div class="distInfo">
+                <div class="currentDist"><span class="distance">0</span></div>
+              </div>
+       <div class="sliders" id="distance"></div>
+   </body>
+   <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-608903-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>
+
+<!-- Localized -->
