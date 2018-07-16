@@ -29,8 +29,9 @@ function init() {
   controls.update();
 
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xa0a0a0);
-  scene.fog = new THREE.Fog(0xa0a0a0, 200, 1000);
+  scene.background = new THREE.Color(0xffffff);
+  //scene.fog = new THREE.Fog(0xa0a0a0, 200, 1000);
+  scene.fog = null;
 
   light = new THREE.HemisphereLight(0xffffff, 0x444444);
   light.position.set(0, 200, 0);
@@ -51,7 +52,7 @@ function init() {
   var mesh = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), new THREE.MeshPhongMaterial({color: 0x999999, depthWrite: false}));
   mesh.rotation.x = -Math.PI / 2;
   mesh.receiveShadow = true;
-  scene.add(mesh);
+  //scene.add(mesh);
 
   var grid = new THREE.GridHelper(2000, 20, 0x000000, 0x000000);
   grid.material.opacity = 0.2;
@@ -65,7 +66,7 @@ function init() {
 	});
 */
 
-  var texture = new THREE.TextureLoader().load('textures/4Kmap.png');
+  var texture = new THREE.TextureLoader().load('textures/2Kmap.png');
 
   // immediately use the texture for material creation
   var material = new THREE.MeshBasicMaterial({map: texture});
