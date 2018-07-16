@@ -11,9 +11,9 @@ APP.CyclesBakingPlay = function() {
 		// load all our assets
 		this.setupAssets();
 
-		camera.position.z = 5;
+		camera.position.z = 3;
 		camera.position.x = 0;
-		camera.position.y = 11;
+		camera.position.y = 3;
 
 		this.controls = new THREE.TrackballControls( camera );
     this.controls.rotateSpeed = .750;
@@ -46,14 +46,14 @@ APP.CyclesBakingPlay = function() {
 		APP.materials = APP.materials || {};
 		APP.models = APP.models || {};
 
-
+/*
 		APP.materials.floorMaterial = new THREE.MeshBasicMaterial(
 		{
 			map: THREE.ImageUtils.loadTexture("textures/floor-cubes-cb.jpg"),
-		});
+		});*/
 		APP.materials.cubesMaterial = new THREE.MeshBasicMaterial(
 		{
-			map: THREE.ImageUtils.loadTexture("textures/cubes-pile-cb.jpg"),
+			map: THREE.ImageUtils.loadTexture("textures/4Kmap.png"),
 		});
 		APP.materials.lightMaterial = new THREE.MeshBasicMaterial(
 		{
@@ -63,19 +63,26 @@ APP.CyclesBakingPlay = function() {
 		// load collada assets
 		var loader = new THREE.ColladaLoader();
 		loader.options.convertUpAxis = true;
-		loader.load( './models/cycles-bake-cubes.dae', function ( collada ) {
+		loader.load( './models/Hotpot_blender_converted.dae', function ( collada ) {
 			collada.scene.traverse( function ( child ) {
 				if ( child instanceof THREE.Object3D ) {
-					if(child.name == "Cubes") {
+						console.log(child)
+					if(child.name == "Cube_3") {
+
 						child.children[0].material = APP.materials.cubesMaterial;
-					} else if(child.name == "Floor") {
+					}
+
+
+/*
+					else if(child.name == "Floor") {
 						child.children[0].material = APP.materials.floorMaterial;
 					} else if(child.name == "Light") {
 						child.children[0].material = APP.materials.lightMaterial;
 					}
+					*/
 				}
 			});
-			collada.scene.rotation.y = -90 * Math.PI / 180;
+		//	collada.scene.rotation.y = -90 * Math.PI / 180;
 			scene.add(collada.scene);
 		});
 	}

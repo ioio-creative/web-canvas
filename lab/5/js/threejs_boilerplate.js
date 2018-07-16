@@ -127,6 +127,7 @@ THREE.StageManager = function() {
 
 		renderer.setSize( window.innerWidth, window.innerHeight );
 		renderer.autoClear = false;
+				renderer.setClearColor( 0xffffff, 0);
 	}
 
 	function onWindowResize() {
