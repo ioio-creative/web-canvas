@@ -52,6 +52,8 @@ function init() {
   light.shadow.camera.bottom = -100;
   light.shadow.camera.left = -120;
   light.shadow.camera.right = 120;
+
+
   scene.add(light);
 
   // scene.add( new THREE.CameraHelper( light.shadow.camera ) );
@@ -70,12 +72,12 @@ function init() {
   var texture = new THREE.TextureLoader().load('textures/4Kmap.png');
 
   // immediately use the texture for material creation
-  var material = new THREE.MeshBasicMaterial({map: texture});
+  var material = new THREE.MeshPhongMaterial({map: texture});
 
   // model
   var loader = new THREE.FBXLoader();
   loader.load('models/fbx/Hotpot_a.fbx', function(object) {
-    console.log(object)
+  
     object.castShadow = true;
     object.receiveShadow = true;
 
@@ -114,8 +116,11 @@ function init() {
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.shadowMap.enabled = true;
-  container.appendChild(renderer.domElement);
+  // to antialias the shadow
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+  container.appendChild(renderer.domElement);
+  console.log(renderer)
   window.addEventListener('resize', onWindowResize, false);
 
   // stats
