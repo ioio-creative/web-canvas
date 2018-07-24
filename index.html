@@ -1,18 +1,21 @@
 <html>
   <head>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="js/indexNavi.js"></script>
   </head>
   <body>
+
+
     <a-scene>
 
-      <a-entity position="-6 0.5 -3" link="href: lab/1/index.html; title: 1; image: #click-box"></a-entity>
-      <a-entity position="-3 0.5 -3" link="href: lab/2/index.html; title: 2; image: #click-box"></a-entity>
-      <a-entity position="0 0.5 -3" link="href: lab/3/index.html; title: 3; image: #click-box"></a-entity>
-      <a-entity position="3 0.5 -3" link="href: lab/4/index.html; title: 4; image: #click-box"></a-entity>
-      <a-entity position="6 0.5 -3" link="href: lab/5/index.html; title: 5; image: #click-box"></a-entity>
+      <a-entity position="-6 0.5 -3" link="href: lab/1/index.html; title: 1;"></a-entity>
+      <a-entity position="-3 0.5 -3" link="href: lab/2/index.html; title: 2;"></a-entity>
+      <a-entity position="0 0.5 -3" link="href: lab/3/index.html; title: 3;"></a-entity>
+      <a-entity position="3 0.5 -3" link="href: lab/4/index.html; title: 4;"></a-entity>
+      <a-entity position="6 0.5 -3" link="href: lab/5/index.html; title: 5;"></a-entity>
 
       <a-entity position="0 2.2 4">
-          <a-entity camera look-controls wasd-controls>
+          <a-entity spacebarnavi camera look-controls wasd-controls="wsAxis: z; wsInverted: true;">
             <a-entity position="0 0 -3"
                       geometry="primitive: ring; radiusInner: 0.08; radiusOuter: 0.1;"
                       material="color: cyan; shader: flat"
