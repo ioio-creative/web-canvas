@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - FBX loader</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			body {
+				font-family: Monospace;
+				background-color: #000;
+				color: #fff;
+				margin: 0px;
+				overflow: hidden;
+			}
+			#info {
+				color: #000;
+				position: absolute;
+				top: 10px;
+				width: 100%;
+				text-align: center;
+				z-index: 100;
+				display:block;
+			}
+			#info a {
+				color: #046;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+
+	<body>
+
+
+		<div id="info">
+		<span class="button" id="color">change color</span>,
+			<span class="button" id="font">change font</span>,
+			<span class="button" id="weight">change weight</span>,
+			<span class="button" id="bevel">change bevel</span>
+			<a id="permalink" href="#">permalink</a>
+		</div>
+
+
+
+		<script src="js/three.js"></script>
+
+		<script src="js/libs/inflate.min.js"></script>
+
+
+
+
+		<script src="js/Detector.js"></script>
+		<script src="js/libs/stats.min.js"></script>
+		<script src="js/utils/GeometryUtils.js"></script>
+		<script src="js/postprocessing/EffectComposer.js"></script>
+		<script src="js/postprocessing/RenderPass.js"></script>
+		<script src="js/postprocessing/ShaderPass.js"></script>
+
+		<script src="js/shaders/CopyShader.js"></script>
+		<script src="js/shaders/FXAAShader.js"></script>
+
+		<script src="script.js"></script>
+
+
+
+	</body>
+</html>
