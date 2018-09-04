@@ -20,7 +20,8 @@ var camera,
   cameraTarget,
   scene,
   renderer,
-  composer;
+  composerReleased,
+  composerPressed;
 
 var group;
 
@@ -42,6 +43,21 @@ var pCursorY = windowHalfY;
 
 var prevTime,
   currTime;
+
+var bloomPass;
+var paramsPressed = {
+  exposure: 0.7,
+  bloomStrength: 0.8,
+  bloomThreshold: 0,
+  bloomRadius: 0
+};
+
+var paramsReleased = {
+  exposure: 1.0,
+  bloomStrength: 0,
+  bloomThreshold: 0,
+  bloomRadius: 0
+};
 
 //RUN
 init();
@@ -181,30 +197,45 @@ loader.load( 'models/animated/flamingo.js', function( geometry ) {
   renderer = new THREE.WebGLRenderer({antialias: true});
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.autoClear = false;
+  renderer.toneMapping = THREE.LinearToneMapping;
+  renderer.toneMappingExposure = 0.7;
 
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap; // softer shadows
   container.appendChild(renderer.domElement);
 
   //Create Shader Passes
-  var renderModel = new THREE.RenderPass(scene, camera);
+  var renderScene = new THREE.RenderPass(scene, camera);
+
   copyPass = new THREE.ShaderPass(THREE.CopyShader);
-  composer = new THREE.EffectComposer(renderer);
-  composer.addPass(renderModel);
-  composer.addPass(copyPass);
   copyPass.renderToScreen = true;
 
-  composer = new THREE.EffectComposer(renderer);
-  composer.addPass(new THREE.RenderPass(scene, camera));
+  bloomPass = new THREE.UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+  bloomPass.renderToScreen = true;
+  bloomPass.threshold = paramsPressed.bloomThreshold;
+  bloomPass.strength = paramsPressed.bloomStrength;
+  bloomPass.radius = paramsPressed.bloomRadius;
 
   var effectFXAA = new THREE.ShaderPass(THREE.FXAAShader);
   var width = window.innerWidth || 2;
   var height = window.innerHeight || 2;
   effectFXAA.uniforms['resolution'].value.set(1 / width, 1 / height);
   effectFXAA.renderToScreen = true;
-  composer.addPass(effectFXAA);
-  console.log(effectFXAA)
+
+  composerReleased = new THREE.EffectComposer(renderer);
+  composerReleased.addPass(renderScene);
+  composerReleased.addPass(copyPass);
+
+  composerReleased.addPass(effectFXAA);
+  //composerReleased.addPass(bloomPass);
+
+  composerPressed = new THREE.EffectComposer(renderer);
+  composerPressed.addPass(renderScene);
+  composerPressed.addPass(copyPass);
+
+  composerPressed.addPass(effectFXAA);
+  composerPressed.addPass(bloomPass);
+
   // STATS
   stats = new Stats();
   //container.appendChild( stats.dom );
@@ -351,19 +382,32 @@ function render() {
 
   if (pressState != undefined) {
     if (pressState) {
-      renderer.clear();
-      renderer.render(scene, camera);
+      //renderer.clear();
+      renderer.toneMappingExposure = paramsReleased.exposure;
+      bloomPass.threshold = paramsPressed.bloomThreshold;
+      bloomPass.strength = paramsPressed.bloomStrength;
+      bloomPass.radius = paramsPressed.bloomRadius;
+
       mesh.material = materialNormal;
       dirLight.color.setRGB(0, 0, 0);
     } else {
-      composer.render(scene, camera);
+      console.log(composerPressed)
+      renderer.toneMappingExposure = paramsReleased.exposure;
+      bloomPass.threshold = paramsReleased.bloomThreshold;
+      bloomPass.strength = paramsReleased.bloomStrength;
+      bloomPass.radius = paramsReleased.bloomRadius;
+      //renderer.render(scene, camera);
       mesh.material = materialBlack;
       dirLight.color.setRGB(1, 1, 1);
     }
   } else {
-    composer.render(scene, camera);
+    //renderer.render(scene, camera);
+    renderer.toneMappingExposure = paramsReleased.exposure;
+    bloomPass.threshold = paramsReleased.bloomThreshold;
+    bloomPass.strength = paramsReleased.bloomStrength;
+    bloomPass.radius = paramsReleased.bloomRadius;
   }
-
+  composerPressed.render(scene, camera);
   //Shader
   var shaderOffsetY = convertRange(cursorY, [
     0, window.innerHeight
