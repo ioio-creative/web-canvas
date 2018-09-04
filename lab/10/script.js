@@ -2,9 +2,13 @@ if (!Detector.webgl)
   Detector.addGetWebGLMessage();
 THREE.Cache.enabled = true;
 
-var materialShaderNormal, materialShaderBlack;
-var materialBlack, materialNormal, materialGround;
-var mesh, ground;
+var materialShaderNormal,
+  materialShaderBlack;
+var materialBlack,
+  materialNormal,
+  materialGround;
+var mesh,
+  ground;
 
 var shadowCameraHelper;
 
@@ -36,7 +40,8 @@ var cursorY = windowHalfY;
 var pCursorX = windowHalfX;
 var pCursorY = windowHalfY;
 
-var prevTime, currTime;
+var prevTime,
+  currTime;
 
 //RUN
 init();
@@ -62,7 +67,7 @@ function init() {
 
   dirLight = new THREE.DirectionalLight(0xffffff, 1);
   dirLight.color.setRGB(1, 1, 1);
-  dirLight.position.set(0, 1.75, 500);
+  dirLight.position.set(0, 1.75, 100);
   //dirLight.position.multiplyScalar( 60 );
   scene.add(dirLight);
   dirLight.castShadow = true;
@@ -341,7 +346,7 @@ function render() {
   dirLight.position.x = dirLigtPosX;
   var dirLigtIntensity = convertRange(Math.abs(dirLigtPosX), [
     0, 200
-  ], [0.4, 0.8])
+  ], [1.5, 3.8])
   dirLight.intensity = dirLigtIntensity;
 
   if (pressState != undefined) {
