@@ -20,8 +20,7 @@ var camera,
   cameraTarget,
   scene,
   renderer,
-  composerReleased,
-  composerPressed;
+  composer;
 
 var group;
 
@@ -41,10 +40,15 @@ var cursorY = windowHalfY;
 var pCursorX = windowHalfX;
 var pCursorY = windowHalfY;
 
+var smoothedX = windowHalfX;
+var smoothedY = cursorY;
+
+var shaderOffsetPressed = 6000;
 var prevTime,
   currTime;
 
 var bloomPass;
+
 var paramsPressed = {
   exposure: 0.7,
   bloomStrength: 0.8,
@@ -59,6 +63,9 @@ var paramsReleased = {
   bloomRadius: 0
 };
 
+var isCursorEntered = false;
+var prevRotation;
+var timeToGoBack = false;
 //RUN
 init();
 animate();
@@ -74,7 +81,6 @@ function init() {
   camera.position.set(0, 0, 1000);
   cameraTarget = new THREE.Vector3(0, 0, 0);
 
-  console.log(camera)
   // SCENE
   scene = new THREE.Scene();
   scene.background = new THREE.Color(0xFFFFFF);
@@ -83,7 +89,7 @@ function init() {
 
   dirLight = new THREE.DirectionalLight(0xffffff, 1);
   dirLight.color.setRGB(1, 1, 1);
-  dirLight.position.set(0, 1.75, 100);
+  dirLight.position.set(0, 0, 250);
   //dirLight.position.multiplyScalar( 60 );
   scene.add(dirLight);
   dirLight.castShadow = true;
@@ -114,7 +120,8 @@ function init() {
   group.position.y = 0;
   scene.add(group);
 
-  materialBlack = new THREE.MeshPhongMaterial({color: 0x000000});
+  materialBlack = new THREE.MeshPhongMaterial({color: 0x000000, specular: 0x000000});
+
   //var materialWire = new MeshLineMaterial();
   materialNormal = new THREE.MeshNormalMaterial();
   materialBlack.onBeforeCompile = function(shader) {
@@ -167,7 +174,9 @@ function init() {
     mesh.castShadow = true;
     mesh.receiveShadow = true;
     //  console.log(geometry.children[0].geometry)
-    console.log(materialNormal)
+    console.log(materialBlack)
+
+    materialBlack.reflectivity = 1;
     materialNormal.wireframe = true;
 
     materialNormal.wireframeLinewidth = 7.8;
@@ -217,30 +226,23 @@ loader.load( 'models/animated/flamingo.js', function( geometry ) {
   bloomPass.radius = paramsPressed.bloomRadius;
 
   var effectFXAA = new THREE.ShaderPass(THREE.FXAAShader);
+  effectFXAA.renderToScreen = true;
   var width = window.innerWidth || 2;
   var height = window.innerHeight || 2;
   effectFXAA.uniforms['resolution'].value.set(1 / width, 1 / height);
-  effectFXAA.renderToScreen = true;
 
-  composerReleased = new THREE.EffectComposer(renderer);
-  composerReleased.addPass(renderScene);
-  composerReleased.addPass(copyPass);
-
-  composerReleased.addPass(effectFXAA);
-  //composerReleased.addPass(bloomPass);
-
-  composerPressed = new THREE.EffectComposer(renderer);
-  composerPressed.addPass(renderScene);
-  composerPressed.addPass(copyPass);
-
-  composerPressed.addPass(effectFXAA);
-  composerPressed.addPass(bloomPass);
+  composer = new THREE.EffectComposer(renderer);
+  composer.addPass(renderScene);
+  composer.addPass(copyPass);
+  composer.addPass(effectFXAA);
+  composer.addPass(bloomPass);
 
   // STATS
   stats = new Stats();
   //container.appendChild( stats.dom );
   // EVENTS
   document.addEventListener('mousedown', onDocumentMouseDown, false);
+  document.addEventListener('mouseover', onDocumentMouseOver, false);
   document.addEventListener('touchstart', onDocumentTouchStart, false);
   document.addEventListener('touchend', onDocumentTouchEnd, false);
   document.addEventListener('touchmove', onDocumentTouchMove, false);
@@ -249,13 +251,22 @@ loader.load( 'models/animated/flamingo.js', function( geometry ) {
 
   window.addEventListener('resize', onWindowResize, false);
 }
-function onWindowResize() {
-  windowHalfX = window.innerWidth / 2;
-  windowHalfY = window.innerHeight / 2;
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+function onDocumentMouseOver(e) {
+  isCursorEntered = true;
+}
 
+
+function onWindowResize() {
+
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+  windowHalfX = width / 2;
+  windowHalfY = height / 2;
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(width, height);
+  composer.setSize(width, height);
 }
 /*
 function onDocumentKeyDown(event) {
@@ -294,16 +305,21 @@ function onDocumentMouseDown(event) {
 }
 function onDocumentMouseMove(event) {
   mouseX = event.clientX - windowHalfX;
-  targetRotation = targetRotationOnMouseDown + (mouseX - mouseXOnMouseDown) * 0.02;
+  targetRotation = targetRotationOnMouseDown + (mouseX - mouseXOnMouseDown) * 0.005;
+
 }
 function onDocumentMouseUp(event) {
   pressState = false;
+
+  timeToGoBack = true;
+
   document.removeEventListener('mousemove', onDocumentMouseMove, false);
   document.removeEventListener('mouseup', onDocumentMouseUp, false);
   document.removeEventListener('mouseout', onDocumentMouseOut, false);
 
 }
 function onDocumentMouseOut(event) {
+
   document.removeEventListener('mousemove', onDocumentMouseMove, false);
   document.removeEventListener('mouseup', onDocumentMouseUp, false);
   document.removeEventListener('mouseout', onDocumentMouseOut, false);
@@ -320,6 +336,7 @@ function onDocumentTouchStart(event) {
 function onDocumentTouchEnd(event) {
   event.preventDefault();
   pressState = false;
+
   console.log("touch end")
   alert("touch end");
 }
@@ -337,15 +354,48 @@ function animate() {
   stats.update();
 }
 function render() {
+  currTime = performance.now();
+  var rotSpeed = group.rotation.y - prevRotation;
+  prevRotation = group.rotation.y
 
-  //camera
-  camera.lookAt(cameraTarget);
 
+  if(Math.abs(rotSpeed) < 0.01 && timeToGoBack == true){
+      prevTime = performance.now()
+      timeToGoBack = false;
+  }
+  if( Math.abs(rotSpeed) < 0.01 && currTime- prevTime>500 && !pressState){
+
+        targetRotation = 0;
+  }
   //mouseUpdate
   document.onmousemove = function(e) {
     cursorX = e.pageX;
     cursorY = e.pageY;
   }
+
+  var distX = cursorX - smoothedX;
+  var distY = cursorY - smoothedY;
+
+  smoothedX += distX * 0.1;
+  smoothedY += distY * 0.1;
+
+  var dirLigtPosX = convertRange(smoothedX, [
+    0, window.innerWidth
+  ], [-250, 250])
+  var dirLigtIntensity = 0.8;
+
+  if (!isCursorEntered) {
+    shaderOffsetPressed = 6000;
+    dirLight.intensity = dirLigtIntensity;
+  } else {
+    dirLigtIntensity = convertRange(Math.abs(dirLigtPosX), [
+      0, 200
+    ], [0.7, 2])
+    shaderOffsetPressed = 6000;
+  }
+  dirLight.intensity = dirLigtIntensity;
+  //camera
+  camera.lookAt(cameraTarget);
 
   //TEXT ROATAION
   group.rotation.y += (targetRotation - group.rotation.y) * 0.05;
@@ -365,20 +415,12 @@ function render() {
     0, 90
   ], [15, 450])
 
-  var dirLigtPosX = convertRange(cursorX, [
-    0, window.innerWidth
-  ], [-250, 250])
-
   ground.position.z = -groundZPos;
   //camera.position.x = -cursorX;
   //camera.position.y = cursorY;
 
   //Light
   dirLight.position.x = dirLigtPosX;
-  var dirLigtIntensity = convertRange(Math.abs(dirLigtPosX), [
-    0, 200
-  ], [1.5, 3.8])
-  dirLight.intensity = dirLigtIntensity;
 
   if (pressState != undefined) {
     if (pressState) {
@@ -391,7 +433,6 @@ function render() {
       mesh.material = materialNormal;
       dirLight.color.setRGB(0, 0, 0);
     } else {
-      console.log(composerPressed)
       renderer.toneMappingExposure = paramsReleased.exposure;
       bloomPass.threshold = paramsReleased.bloomThreshold;
       bloomPass.strength = paramsReleased.bloomStrength;
@@ -407,35 +448,32 @@ function render() {
     bloomPass.strength = paramsReleased.bloomStrength;
     bloomPass.radius = paramsReleased.bloomRadius;
   }
-  composerPressed.render(scene, camera);
+  composer.render(scene, camera);
   //Shader
-  var shaderOffsetY = convertRange(cursorY, [
-    0, window.innerHeight
-  ], [-5, 5])
 
-  var shaderOffsetY2 = convertRange(cursorY, [
+  var shaderOffsetY2 = convertRange(smoothedY, [
     0, window.innerHeight
   ], [10, 70])
 
-  var shaderOffsetY3 = convertRange(cursorY, [
+  var shaderOffsetY3 = convertRange(smoothedY, [
     0, window.innerHeight
   ], [200, 400])
 
   var shaderOffsetI;
-  if (cursorX >= window.innerWidth / 2) {
-    shaderOffsetI = convertRange(cursorX, [
+  if (smoothedX >= window.innerWidth / 2) {
+    shaderOffsetI = convertRange(smoothedX, [
       window.innerWidth / 2,
       window.innerWidth
     ], [300, 5])
-    var shaderOffsetX = convertRange(cursorX, [
+    var shaderOffsetX = convertRange(smoothedX, [
       window.innerWidth / 2,
       window.innerWidth
     ], [0.5, 0.25])
   } else {
-    shaderOffsetI = convertRange(cursorX, [
+    shaderOffsetI = convertRange(smoothedX, [
       0, window.innerWidth / 2
     ], [5, 300])
-    var shaderOffsetX = convertRange(cursorX, [
+    var shaderOffsetX = convertRange(smoothedX, [
       0, window.innerWidth / 2
     ], [0.25, 0.5])
   }
@@ -445,20 +483,18 @@ function render() {
     //materialShader.uniforms.time.value = performance.now() / 1000;
     //materialShader.uniforms.val.value = Math.sin(performance.now() / 500) * 60.0;
     materialShaderBlack.uniforms.time.value = performance.now() / 1000;
-    materialShaderBlack.uniforms.val.value = Math.sin(shaderOffsetX) * 30;
+    materialShaderBlack.uniforms.val.value = Math.sin(shaderOffsetX) * shaderOffsetPressed;
   }
   if (materialShaderNormal) {
     materialShaderNormal.uniforms.time.value = performance.now() / shaderOffsetY3;
     materialShaderNormal.uniforms.val.value = Math.sin(performance.now() / shaderOffsetY3) * shaderOffsetY2;
-    //  console.log(materialShader.uniforms)
   }
+
+  pCursorX = cursorX;
+  pCursorY = cursorY;
+
 }
 //Other Functions
-function decimalToHex(d) {
-  var hex = Number(d).toString(16);
-  hex = "000000".substr(0, 6 - hex.length) + hex;
-  return hex.toUpperCase();
-}
 
 function convertRange(value, r1, r2) {
   return (value - r1[0]) * (r2[1] - r2[0]) / (r1[1] - r1[0]) + r2[0];
