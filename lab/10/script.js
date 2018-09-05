@@ -66,12 +66,21 @@ var paramsReleased = {
 var isCursorEntered = false;
 var prevRotation;
 var timeToGoBack = false;
+
+var renderScale = 1.0;
 //RUN
 init();
 animate();
 
 //SETUP
 function init() {
+  if (window.innerWidth < 800) {
+    renderScale = convertRange(window.innerWidth, [
+      0, 1000
+    ], [0.2, 1])
+    //renderScale = 0.1;
+    console.log("renderScale" + renderScale)
+  }
   container = document.createElement('div');
   document.body.appendChild(container);
 
@@ -179,11 +188,14 @@ function init() {
     materialBlack.reflectivity = 1;
     materialNormal.wireframe = true;
 
-    materialNormal.wireframeLinewidth = 7.8;
+    materialNormal.wireframeLinewidth = 0.5;
     geometry.scale.setScalar(2)
     scene.add(mesh);
     group.add(mesh);
   });
+  group.scale.x = 1 * renderScale
+  group.scale.y = 1 * renderScale
+  group.scale.z = 1 * renderScale
 
   /*
 var loader = new THREE.JSONLoader();
@@ -255,7 +267,6 @@ function onDocumentMouseOver(e) {
   isCursorEntered = true;
 }
 
-
 function onWindowResize() {
 
   var width = window.innerWidth;
@@ -326,7 +337,7 @@ function onDocumentMouseOut(event) {
 }
 function onDocumentTouchStart(event) {
   pressState = true;
-  alert("touch start");
+
   if (event.touches.length == 1) {
     event.preventDefault();
     mouseXOnMouseDown = event.touches[0].pageX - windowHalfX;
@@ -337,8 +348,8 @@ function onDocumentTouchEnd(event) {
   event.preventDefault();
   pressState = false;
 
-  console.log("touch end")
-  alert("touch end");
+  timeToGoBack = true;
+
 }
 function onDocumentTouchMove(event) {
   if (event.touches.length == 1) {
@@ -346,6 +357,11 @@ function onDocumentTouchMove(event) {
     mouseX = event.touches[0].pageX - windowHalfX;
     targetRotation = targetRotationOnMouseDown + (mouseX - mouseXOnMouseDown) * 0.05;
   }
+
+
+    cursorX = event.touches[0].pageX;
+    cursorY = event.touches[0].pageY;
+
 }
 //
 function animate() {
@@ -358,14 +374,13 @@ function render() {
   var rotSpeed = group.rotation.y - prevRotation;
   prevRotation = group.rotation.y
 
-
-  if(Math.abs(rotSpeed) < 0.01 && timeToGoBack == true){
-      prevTime = performance.now()
-      timeToGoBack = false;
+  if (Math.abs(rotSpeed) < 0.01 && timeToGoBack == true) {
+    prevTime = performance.now()
+    timeToGoBack = false;
   }
-  if( Math.abs(rotSpeed) < 0.01 && currTime- prevTime>500 && !pressState){
+  if (Math.abs(rotSpeed) < 0.01 && currTime - prevTime > 500 && !pressState) {
 
-        targetRotation = 0;
+    targetRotation = 0;
   }
   //mouseUpdate
   document.onmousemove = function(e) {
