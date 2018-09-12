@@ -68,6 +68,8 @@ var prevRotation;
 var timeToGoBack = false;
 
 var renderScale = 1.0;
+
+var effectFXAA, copyPass;
 //RUN
 init();
 animate();
@@ -101,7 +103,7 @@ function init() {
   dirLight.position.set(0, 0, 250);
   //dirLight.position.multiplyScalar( 60 );
   scene.add(dirLight);
-  dirLight.castShadow = true;
+  dirLight.castShadow = false;
   dirLight.shadow.mapSize.x = 8192;
   dirLight.shadow.mapSize.y = 8192;
   var d = 6000;
@@ -123,7 +125,7 @@ function init() {
   ground.position.y = -2000;
   scene.add(ground);
 
-  ground.receiveShadow = true;
+  ground.receiveShadow = false;
 
   group = new THREE.Group();
   group.position.y = 0;
@@ -221,7 +223,7 @@ loader.load( 'models/animated/flamingo.js', function( geometry ) {
   renderer.toneMapping = THREE.LinearToneMapping;
   renderer.toneMappingExposure = 0.7;
 
-  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.enabled = false;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap; // softer shadows
   container.appendChild(renderer.domElement);
 
@@ -237,18 +239,20 @@ loader.load( 'models/animated/flamingo.js', function( geometry ) {
   bloomPass.strength = paramsPressed.bloomStrength;
   bloomPass.radius = paramsPressed.bloomRadius;
 
-  var effectFXAA = new THREE.ShaderPass(THREE.FXAAShader);
-  effectFXAA.renderToScreen = true;
+
+  effectFXAA = new THREE.ShaderPass(THREE.FXAAShader);
+  effectFXAA.renderToScreen = false;
   var width = window.innerWidth || 2;
   var height = window.innerHeight || 2;
   effectFXAA.uniforms['resolution'].value.set(1 / width, 1 / height);
 
   composer = new THREE.EffectComposer(renderer);
   composer.addPass(renderScene);
-  composer.addPass(copyPass);
+
   composer.addPass(effectFXAA);
   composer.addPass(bloomPass);
-
+  composer.addPass(copyPass);
+    console.log(composer);
   // STATS
   stats = new Stats();
   //container.appendChild( stats.dom );
@@ -268,7 +272,6 @@ function onDocumentMouseOver(e) {
 }
 
 function onWindowResize() {
-
   var width = window.innerWidth;
   var height = window.innerHeight;
   windowHalfX = width / 2;
@@ -430,7 +433,8 @@ function render() {
     0, 90
   ], [15, 450])
 
-  ground.position.z = -groundZPos;
+  //ground.position.z = -groundZPos;
+  ground.position.z = -450;
   //camera.position.x = -cursorX;
   //camera.position.y = cursorY;
 
@@ -447,7 +451,13 @@ function render() {
 
       mesh.material = materialNormal;
       dirLight.color.setRGB(0, 0, 0);
+
+      effectFXAA.enabled = false;
+      copyPass.enabled = false;
+      bloomPass.enabled = true;
+
     } else {
+
       renderer.toneMappingExposure = paramsReleased.exposure;
       bloomPass.threshold = paramsReleased.bloomThreshold;
       bloomPass.strength = paramsReleased.bloomStrength;
@@ -455,6 +465,10 @@ function render() {
       //renderer.render(scene, camera);
       mesh.material = materialBlack;
       dirLight.color.setRGB(1, 1, 1);
+
+      effectFXAA.enabled = true;
+      copyPass.enabled = true;
+      bloomPass.enabled = false;
     }
   } else {
     //renderer.render(scene, camera);
@@ -462,8 +476,13 @@ function render() {
     bloomPass.threshold = paramsReleased.bloomThreshold;
     bloomPass.strength = paramsReleased.bloomStrength;
     bloomPass.radius = paramsReleased.bloomRadius;
+
+    effectFXAA.enabled = true;
+    copyPass.enabled = true;
+    bloomPass.enabled = false;
   }
   composer.render(scene, camera);
+
   //Shader
 
   var shaderOffsetY2 = convertRange(smoothedY, [
